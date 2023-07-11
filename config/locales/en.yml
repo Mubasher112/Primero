@@ -56,8 +56,8 @@ en:
       valid: Valid record
     disable: Disable
     enable: Enable
-    incident_details_from_case: Add Incident
-    incident_from_case: Create Incident
+    incident_details_from_case: Add Prevention
+    incident_from_case: Create Prevention
     next: Next
     notes: Add Notes
     previous: Previous
@@ -156,7 +156,7 @@ en:
     close: Close
     continue: Continue
     create_case: Create Case
-    create_incident: Create Incident
+    create_incident: Create Prevention
     create_new_record: Create New %{model}
     delete: Delete
     disable: Disable
@@ -269,7 +269,7 @@ en:
       service_implemented: Service Implemented
       services_implemented: Service Implemented
   linkedincidents:
-    label: Linked Incidents
+    label: Linked Preventions
   activity_log:
     label: Activity Log
     accepted_transfer: '%{to} accepted transfer of %{record_type} %{record_id} from %{from}'
@@ -675,11 +675,11 @@ en:
     dash_shared_with_my_team_overview: Shared with my Team (Overview)
     dash_shared_with_others: Shared With Others
     dash_national_admin_summary: Administrator Summary
-    dash_violations_category_verification_status: Total number of Incidents per verification status
-    dash_violations_category_region: Total number of verified Incidents per region
-    dash_perpetrator_armed_force_group_party_names: Total number of incidents per perpetrator
+    dash_violations_category_verification_status: Total number of Preventions per verification status
+    dash_violations_category_region: Total number of verified Preventions per region
+    dash_perpetrator_armed_force_group_party_names: Total number of Preventions per perpetrator
     date: Date
-    date_of_incident: Date of Incident
+    date_of_incident: Date of Preventions
     date_of_interview: Date of Interview
     due: Overdue
     flagged: Flagged
@@ -696,8 +696,8 @@ en:
     high_risk: High Priority
     immediate_response: Immediate Response
     in_progress: In Progress
-    incident_id: 'Incident #ID'
-    incident_location: Incident Location
+    incident_id: 'Prevention #ID'
+    incident_location: Prevention Location
     incident_status_open: Open
     last_updated: Lasted Updated
     link_see_all: See all
@@ -721,8 +721,8 @@ en:
     near_deadline: Near Deadline
     new: New & Updated
     new_child_assigned_to_you: New Cases Assigned To You
-    new_incident: New Incidents
-    new_incident_assigned_to_you: New Assigned Incidents
+    new_incident: New Preventions
+    new_incident_assigned_to_you: New Assigned Preventions
     new_last_week: New (last week)
     new_or_updated: New or Updated
     new_referred: New Referrals
@@ -732,8 +732,8 @@ en:
     no_case_stats: No Case Stats
     no_caseworker_data: No Case Worker Data
     no_flagged_child: No Flagged Cases
-    no_flagged_incident: No Flagged Incidents
-    no_open_incidents: No Open incidents
+    no_flagged_incident: No Flagged Preventions
+    no_open_incidents: No Open Preventions
     no_overdue_activities: No Overdue Activities
     no_recent_activities: No Recent Activities
     no_scheduled_activities: No Scheduled Activities
@@ -743,7 +743,7 @@ en:
     number_of_violations_verified: Violations Verified
     open: Open
     open_cases: Open Cases
-    open_incidents: Open Incidents
+    open_incidents: Open Preventions
     outstanding_transfers: Outstanding Transfers
     overdue_activities: Overdue Activities
     overdue_cases_to_assign: Overdue Cases To Assign
@@ -761,7 +761,7 @@ en:
     range8_12: 8-12
     recent_activities: Recent Activities
     recently_flagged_child: Recently Flagged Cases
-    recently_flagged_incident: Recently Flagged Incidents
+    recently_flagged_incident: Recently Flagged Preventions
     referrals_by_social_worker: Referrals by social worker
     registration: Registration
     rejected: Rejected
@@ -794,9 +794,9 @@ en:
     transfers_by_social_worker: Transfers by social worker
     users: SETTINGS icon
     violence_type: Violence Type
-    with_incidents: With Incidents
-    with_new_incidents: With New Incidents
-    without_incidents: Without Incidents
+    with_incidents: With Preventions
+    with_new_incidents: With New Preventions
+    without_incidents: Without Preventions
     worker_count_referrals_total:
       one: '%{case_worker} has %{stat} total referral '
       other: '%{case_worker} has %{stat} total referrals  '
@@ -864,7 +864,7 @@ en:
       export_configuration:
         opt_out_field_does_not_exist: Specified opt_out field does not exist on the
           record.
-        record_type: Invalid record type. Must be Child, TracingRequest, or Incident.
+        record_type: Invalid record type. Must be Child, TracingRequest, or Prevention.
       field:
         translated_options_do_not_match: Field translated options must have same ids
       location:
@@ -990,9 +990,9 @@ en:
 
     go_to_exports: Go to Exports page to download
     incident_recorder_xls:
-      all: Incident Recorder
-      one: Incident Recorder
-      selected: Selected to Incident Recorder
+      all: Prevention Recorder
+      one: Prevention Recorder
+      selected: Selected to Prevention Recorder
     json:
       all: JSON
       one: JSON
@@ -1259,7 +1259,7 @@ en:
     save_filters: Save
     categories:
       violations: Violations
-      incidents: Incidents
+      incidents: Preventions
       individual_victims: Individual Victims
   flags:
     add_flag_tab: Add New Flag
@@ -1316,7 +1316,7 @@ en:
       approvals: Approvals
       case: Case
       child: Case
-      incident: Incident
+      incident: Prevention
       individual_victim: Individual Victim
       potential_match: Potential Match
       record_information: Record Information
@@ -1416,14 +1416,14 @@ en:
     welcome: Welcome to Primero
     zh: 中文
   incident:
-    code: Incident Code
+    code: Prevention Code
     associated_case: "Associated Case:"
     messages:
-      creation_success: Incident record successfully created.
-      creation_success_queue: Incident record successfully created in background
-      disabled: Incident is disabled
-      update_success: 'Incident %{record_id} was successfully updated.'
-      update_success_queue: 'Incident %{record_id} was successfully updated in background.'
+      creation_success: Prevention record successfully created.
+      creation_success_queue: Prevention record successfully created in background
+      disabled: Prevention is disabled
+      update_success: 'Prevention %{record_id} was successfully updated.'
+      update_success_queue: 'Prevention %{record_id} was successfully updated in background.'
     violation:
       associated_violations: "Associated Violations:"
       update_and_return: 'Update and Return to %{association}'
@@ -1442,27 +1442,27 @@ en:
         military_use: Military use of school(s) and/or hospital(s)
         denial_humanitarian_access: Denial of humanitarian access for children
   incidents:
-    disable_dialog: Clicking OK will change the status of this incident to Disabled.
-    disable_dialog_title: Disable Incident
-    disable_success: Successfully disabled incident
-    enable_dialog: Clicking OK will change the status of this incident to Enabled.
-    enable_dialog_title: Enable Incident
-    enable_success: Successfully enabled incidents.
+    disable_dialog: Clicking OK will change the status of this prevention to Disabled.
+    disable_dialog_title: Disable Prevention
+    disable_success: Successfully disabled prevention
+    enable_dialog: Clicking OK will change the status of this prevention to Enabled.
+    enable_dialog_title: Enable Prevention
+    enable_success: Successfully enabled Preventions.
     id: ID#
     complete: Available Offline
     date_of_interview: Date of Interview
-    date_of_incident: Date of Incident
-    incident_location: Incident Location
+    date_of_incident: Date of Prevention
+    incident_location: Prevention Location
     violations: Violations
     export: Export
-    label: Incidents
+    label: Preventions
     filter_by:
       filter_category: Filter Category
       boys: Boys
       by_date: By Date
       children: Children
       girls: Girls
-      incident_location: Incident Location
+      incident_location: Prevention Location
       status: Status
       unaccompanied_separated_status: Protection Status
       unknown: Unknown
@@ -1478,7 +1478,7 @@ en:
       reasons_deprivation_liberty: What are the reasons for the deprivation of liberty?
       victim_facilty_victims_held: Please select the facility where the victim(s) was/were being held
       torture_punishment_while_deprivated_liberty: Was/were the child(ren) subject to torture or other cruel, inhuman or degrading treatment or punishment while deprived of liberty?
-      verified_ghn_reported: Specify the GHN in which this incident was included
+      verified_ghn_reported: Specify the GHN in which this prevention was included
       weapon_type: 'Type of weapon/method used'
       facility_impact: 'Type and extent of physical impact'
       facility_attack_type: 'Type of health- or education-related violation'
@@ -1489,36 +1489,36 @@ en:
       late_verified_violations: Late-verified violations
       perpetrator_category: Type of Perpetrator
       record_owner: Record Owner
-    register_new_incident: New Incident
+    register_new_incident: New Prevention
     selectable_date_options:
       date_of_first_report: Interview Date
       mrm_date_of_first_report: Date of initial report to CTFMR member
       ctfmr_verified_date: Date of Verification decision by CTFMR
-      incident_date_derived: Incident Date
-    selected_records: '%{select_records} incident(s) selected'
-    selected_all_records: 'Select all %{total_records} incidents that match this query.'
+      incident_date_derived: Prevention Date
+    selected_records: '%{select_records} prevention(s) selected'
+    selected_all_records: 'Select all %{total_records} preventions that match this query.'
     summary_mrm:
-      label: Summary of the Incident
+      label: Summary of the Prevention
       fields:
         children_multiple_violation:
           label: Children affected by multiple violations
         summary_of_incident:
-          label: Summary of the Incident
+          label: Summary of the Prevention
         incident_total_tally:
           label: Number of victims
           boys: Boys
           girls: Girls
           unknown: Unknown
         incident_date:
-          label: Date of the incident
+          label: Date of the prevention
         incident_location:
-          label: Incident location
+          label: Prevention location
         incident_description:
-          label: Account of Incident
+          label: Account of Prevention
         incident_update:
-          label: Update of Incident
+          label: Update of Prevention
     survivor_code: Survivor Code
-    show_incident: 'Incident ID %{short_id}'
+    show_incident: 'Prevention ID %{short_id}'
     social_worker: Social Worker
     violation_type: Violation Type
     violence_type: Violence Type
@@ -1563,26 +1563,26 @@ en:
         A reporting site is understood as the site where the User Organization is providing services and
         where the case was reported to the service provider.
     number_of_incidents:
-      title: "2. Number of recorded Incidents"
+      title: "2. Number of recorded Preventions"
       reporting_site: "Reporting Site"
       helptext: |
-        This indicator counts the number of new incidents opened each month per reporting site.
+        This indicator counts the number of new ireventions opened each month per reporting site.
         A reporting site is understood as the site where the User Organization is providing services and
-        where the incident was reported to the service provider.
+        where the prevention was reported to the service provider.
     reporting_delay:
       title: "3. Reporting Delay"
       delay: "Delay"
-      total_incidents: "Total Incidents"
+      total_incidents: "Total Preventions"
       helptext: |
         This indicator counts and categorizes the number of days that have lapsed between when the
         survivor experienced GBV and when the survivor first reported it to a service provider. It is
-        calculated based on when the incident was first reported to the User Organization. The data is
+        calculated based on when the prevention was first reported to the User Organization. The data is
         categorized based on different lengths of time (0-3 days; 4-5 days; 6-14 days; 15-30 days; Over
         1 month; Over 3 months).
     service_access_delay:
       title: "Service Access Delay"
       delay: "Delay"
-      total_incidents: "Total Incidents"
+      total_incidents: "Total Preventions"
     assessment_status:
       title: "4. Assessment Status"
       completed: "Completed"
@@ -1662,7 +1662,7 @@ en:
       helptext: |
         This indicator measures the count of cases closed per month per reporting site. A reporting site
         is understood as the site where the User Organization is providing services and where the
-        incident was reported to the service provider.
+        prevention was reported to the service provider.
     client_satisfaction_rate:
       title: "13. Client Satisfaction Rate"
       label: "Client Satisfaction"
@@ -1768,7 +1768,7 @@ en:
       export: Export
       flag: Flag
       import: Import
-      incident_details_from_case: Incident details from case
+      incident_details_from_case: Prevention details from case
       index: Index
       list: List
       login: Login
@@ -1853,7 +1853,7 @@ en:
       bulk_export: Bulk export
       saved_search: SavedSearch
       role: Role
-      incident: Incident
+      incident: Prevention
       location: Location
       primero_configuration: Primero configuration
       code_of_conduct: Code of conduct
@@ -1987,7 +1987,7 @@ en:
       name: Violations
       description: ''
       filter_options:
-        incident_date: Date of Incident
+        incident_date: Date of Prevention
         date_of_report: Date of Report
         ctfmr_verified_date: Date of Verification
         verified: Verified
@@ -2013,8 +2013,8 @@ en:
         perpetrators: Number of Children by Perpetrators
         perpetrators_denial: Number of Violations by Perpetrators
         perpetrator_detention: Number of Children by Perpetrators
-        perpetrators_incidents: Number of incidents by Perpetrators
-        reporting_location_incidents: Number of incidents by Region
+        perpetrators_incidents: Number of preventions by Perpetrators
+        reporting_location_incidents: Number of preventions by Region
         reporting_location: Number of Children by Region
         reporting_location_detention: Number of Children by Region
         reporting_location_denial: Number of Violations by Region
@@ -2043,23 +2043,23 @@ en:
       description: ''
       filter_options:
         date_of_first_report: Date of Interview
-        incident_date: Date of Incident
+        incident_date: Date of Prevention
       reports:
-        incidents: Incidents
+        incidents: Preventions
         perpetrators: Perpetrators
         survivors: Survivors
         referrals: Referrals
       sub_reports:
-        combined: Incidents
-        total: Number of GBV Incidents Reported
-        gbv_sexual_violence: Number of Incidents of Sexual Violence Reported
-        gbv_previous_incidents: Number of Incidents Reported by Survivors with Prior GBV Incidents
-        gbv_sexual_violence_type: Incident Type
-        incident_timeofday: Incident Time of Day
-        elapsed_reporting_time: Time Between Incident and Report Date
-        elapsed_reporting_time_rape: Incidents of Rape, Time Elapsed between Incident and Report Date
-        elapsed_reporting_time_rape_health_referral: Incidents of Rape, Time Elapsed between Incident and Report Date (Health Service or Referral)
-        incident_location_type: Incident Location
+        combined: Preventions
+        total: Number of GBV Preventions Reported
+        gbv_sexual_violence: Number of Preventions of Sexual Violence Reported
+        gbv_previous_incidents: Number of Preventions Reported by Survivors with Prior GBV Preventions
+        gbv_sexual_violence_type: Prevention Type
+        incident_timeofday: Prevention Time of Day
+        elapsed_reporting_time: Time Between Prevention and Report Date
+        elapsed_reporting_time_rape: Preventions of Rape, Time Elapsed between Prevention and Report Date
+        elapsed_reporting_time_rape_health_referral: Preventions of Rape, Time Elapsed between Incident and Report Date (Health Service or Referral)
+        incident_location_type: Prevention Location
         number_of_perpetrators: Number of Perpetrators
         perpetrator_relationship: Alleged Primary Perpetrator's Relationship to Survivor
         perpetrator_age_group: Alleged Primary Perpetrators Age Group
@@ -2068,12 +2068,12 @@ en:
         sex: Number of Survivors by Sex
         marital_status: Marital Status of Survivors
         displacement_status: Displacement Status of Survivors
-        displacement_incident: Stage of Displacement at time of Incident
+        displacement_incident: Stage of Displacement at time of Prevention
         gbv_case_context: Case Context
-        incidents_first_point_of_contact: Number of Incidents where your organization is the first point of contact
-        incidents_from_other_service_provider: Incidents Referred from Other Service Providers
-        number_of_services_provided: Number of Services Provided for Incidents
-        number_of_services_provided_other: New Incident Referrals to Other Service Providers
+        incidents_first_point_of_contact: Number of Preventions where your organization is the first point of contact
+        incidents_from_other_service_provider: Preventions Referred from Other Service Providers
+        number_of_services_provided: Number of Services Provided for Preventions
+        number_of_services_provided_other: New Prevention Referrals to Other Service Providers
         service_safehouse_referral: Safe House/Safe Shelter Referral
         service_medical_referral: Health/Medical Referral
         service_psycho_referral: Psychosocial/Counseling Services
@@ -2117,7 +2117,7 @@ en:
     cases: Cases
     home: Home
     key_performance_indicators: Pulse/KPIs
-    incidents: Incidents
+    incidents: Preventions
     logout: Log out
     reports: Reports
     insights: Insights
@@ -2177,7 +2177,7 @@ en:
       copy: Copy
       copy_of: Copy of
       create: Create
-      dash_case_incident_overview: My Cases / Incidents
+      dash_case_incident_overview: My Cases / Preventions
       dash_cases_by_social_worker: View Cases By Social Worker
       dash_cases_by_task_overdue: View Cases By Task Overdue
       dash_cases_by_workflow: View Cases By Workflow
@@ -2223,8 +2223,8 @@ en:
       group_read: Group Read
       import: Import
       incident: Incident
-      incident_details_from_case: Add Incident Details to another user's case
-      incident_from_case: Create an incident from a case
+      incident_details_from_case: Add Prevention Details to another user's case
+      incident_from_case: Create an prevention from a case
       kpi: Pulse/KPIs
       lookup: Lookups
       manage: Manage
@@ -2256,7 +2256,7 @@ en:
       saved_search: Saved Search
       search_owned_by_others: Search for case records owned by other users
       self: Access only my records or user
-      service_provision_incident_details: See Add Service Provision Button on Incident
+      service_provision_incident_details: See Add Service Provision Button on Prevention
         Details Modal
       services_section_from_case: Add Service provision to another user's case
       specific_roles: Access specified list of roles
@@ -2326,11 +2326,11 @@ en:
               per site.
             label: Number of Cases
           kpi_number_of_incidents:
-            explanation: Ability to see how many newly reported incidents are opened each month
+            explanation: Ability to see how many newly reported preventions are opened each month
               per site.
-            label: Number of Incidents
+            label: Number of Preventions
           kpi_reporting_delay:
-            explanation: Ability to see, for all incidents that the user has access to, the number
+            explanation: Ability to see, for all preventions that the user has access to, the number
               of days lapsed between when the survivor experienced GBV and when the survivor reported
               it to a service provider.
             label: Reporting Delay
@@ -2383,7 +2383,7 @@ en:
               about records involved in each action.
             label: View
         explanation: Filterable list of all actions performed in the system. Does not
-          include any identifiable information on Cases, Incidents, or Tracing Requests.
+          include any identifiable information on Cases, Preventions, or Tracing Requests.
         label: Audit Log
       case:
         actions:
@@ -2564,32 +2564,32 @@ en:
               Only performed from case list page.
             label: Import
           incident_details_from_case:
-            explanation: Ability to add an entry for the Incident Details subform
+            explanation: Ability to add an entry for the Prevention Details subform
               on a case you have found in search results, but to which you do not
               have access. The user performs this action from the search results page
-              by selecting one or more cases, then selecting "Add Incident" from the
+              by selecting one or more cases, then selecting "Add Prevention" from the
               actions menu. The user then sees a modal containing all the fields on
-              the Incident Details subform, where they can enter and submit information
+              the Prevention Details subform, where they can enter and submit information
               about a service. Because this action can only be performed from the
               search results page, it only makes sense for a role to have this permission
               if they also have the "Search for case records owned by other users"
               permission.
-            label: Add Incident Details to another user's case from search results
+            label: Add Prevention Details to another user's case from search results
               page
           incident_from_case:
-            explanation: This permission allows the user to click the "Create Incident"
-              button. This generates an incident which may contain some information
+            explanation: This permission allows the user to click the "Create Prevention"
+              button. This generates an prevention which may contain some information
               copied over from the case. For GBV cases, this button is at the top
               of the show case page, and corresponds to information about the case
-              as a whole. In some incident-tracking contexts, this button is on an
-              "Incident Details" subform. In this situation, some information may
-              be copied from the incident details subform where the button was clicked,
-              as well as from the case as a whole. I.e. the new incident created may
-              contain the field "Type of Violence" from the individual incident details
+              as a whole. In some prevention-tracking contexts, this button is on an
+              "Prevention Details" subform. In this situation, some information may
+              be copied from the prevention details subform where the button was clicked,
+              as well as from the case as a whole. I.e. the new prevention created may
+              contain the field "Type of Violence" from the individual prevention details
               subform, but may also contain the age and sex of the case itself. Note
-              that this permission also allows the user to see a link to the incident
+              that this permission also allows the user to see a link to the prevention
               which was created.
-            label: Create an incident from a case
+            label: Create an prevention from a case
           manage:
             explanation: Allows a user to perform all available actions on cases.
               The "Manage" permission essentially means "everything".
@@ -2691,14 +2691,14 @@ en:
             label: Search for case records owned by other users
           service_provision_incident_details:
             explanation: Allows the user to see a button labelled "Save and Add Service
-              Provision" at the bottom of the Add Incident modal. Clicking this button
-              saves the information currently entered about the incident, and then
+              Provision" at the bottom of the Add Prevention modal. Clicking this button
+              saves the information currently entered about the prevention, and then
               takes the user directly to the Add Service Provision modal. Because
-              this action is directly linked to the Add Incident and Add Service Provision
+              this action is directly linked to the Add Prevention and Add Service Provision
               actions, it only makes sense to give this permission to a role if that
-              role also has the "Add Incident Details to another user's case" and
+              role also has the "Add Prevention Details to another user's case" and
               "Add Service provision to another user's case" permissions.
-            label: See Add Service Provision Button on Incident Details Modal
+            label: See Add Service Provision Button on Prevention Details Modal
           services_section_from_case:
             explanation: Ability to add an entry for of the Services subform on a
               case you have found in search results, but to which you do not have
@@ -2732,9 +2732,9 @@ en:
               also allows the user to see photos of the child in the "View Modal".
             label: View Photo from case list view
           view_incident_from_case:
-            explanation: “When viewing a Case, User can see a list of Incidents linked
+            explanation: “When viewing a Case, User can see a list of Preventions linked
               to the Case, along with some summary information about each.
-            label: View Incidents from Case
+            label: View Preventions from Case
           view_protection_concerns_filter:
             explanation: Allows the user to see a protection concerns filter on the
               case list page.
@@ -2828,7 +2828,7 @@ en:
             label: Overdue Service tasks
           dash_case_incident_overview:
             explanation: .
-            label: Overview - My Cases / Incidents
+            label: Overview - My Cases / Preventions
           dash_cases_by_social_worker:
             explanation: Table which shows how the total number of open cases and
               the number of new cases managed by each user in the current user's user
@@ -2955,7 +2955,7 @@ en:
       forms:
         case:
           explanation: 'Limiting a user''s access to forms on cases limits which information
-            the user can see on an incident. For instance, if the user only has access
+            the user can see on an prevention. For instance, if the user only has access
             to the Record Owner form, they will also only be able to see the information
             contained in the fields on that form. If the current user has limited
             form access and has the ability to manage the form configuration, limiting
@@ -2964,15 +2964,15 @@ en:
             for cases.'
           label: Forms - Case
         incident:
-          explanation: 'Limiting a user''s access to forms on incidents limits
-            which information the user can see on an incident. For instance, if the
+          explanation: 'Limiting a user''s access to forms on preventions limits
+            which information the user can see on an prevention. For instance, if the
             user only has access to the Record Owner form, they will also only be
             able to see the information contained in the fields on that form. If the
             current user has limited form access and has the ability to manage the
             form configuration, limiting their form access also limits which forms
             they can configure. NOTE: If no forms are specified, it means the role
-            has access to all the forms for incidents.'
-          label: Forms - Incident
+            has access to all the forms for preventions.'
+          label: Forms - Prevention
         tracing_request:
           explanation: 'Limiting a user''s access to forms on tracing requests limits
             which information the user can see on a tracing request. For instance,
@@ -2999,7 +2999,7 @@ en:
             explanation: This means that users with this role will only be able to
               see things related to administration of the system, such as reports,
               form and lookup configuration, users, roles, and user groups. They will
-              not see any individual cases, tracing requests, or incidents.
+              not see any individual cases, tracing requests, or preventions.
             label: No records - Admin functionality only
           agency:
             explanation: The role can access records managed by all the users in their
@@ -3017,9 +3017,9 @@ en:
             label: Access all records or users in my group
           self:
             explanation: The role can access their own records (cases, tracing requests,
-              or incidents), and can edit their own user account.
+              or preventions), and can edit their own user account.
             label: Access only my records or user
-        explanation: Controls which records (Cases, Tracing Requests, or Incidents),
+        explanation: Controls which records (Cases, Tracing Requests, or Preventions),
           the role can access. If the role has access to Users and User Groups, this
           also controls which Users and User Groups they can access. Roles with access
           to "No Records" can only access system configuration such as Forms, Users,
@@ -3032,60 +3032,60 @@ en:
               since it was created. This includes values recorded for all fields.
             label: Change Log
           create:
-            explanation: Ability to create an incident.
+            explanation: Ability to create an Prevention.
             label: Create
           enable_disable_record:
-            explanation: Ability to disable or enable a Incident.
-              "Disabled" Incidents do not appear by default in the Incident list.
-              Users can see disabled Incidents in the Incident list by applying a filter.
+            explanation: Ability to disable or enable a Prevention.
+              "Disabled" Preventions do not appear by default in the Prevention list.
+              Users can see disabled Preventions in the Prevention list by applying a filter.
             label: Enable / Disable
           export_case_pdf:
-            explanation: User can generate a PDF file export from the incidents list
-              or incident show pages, which contains all fields to which the current
+            explanation: User can generate a PDF file export from the preventions list
+              or prevention show pages, which contains all fields to which the current
               user has access, for one, multiple, or all records to which the user
               has access. In the PDF export file, information is listed first by case,
               and then further organized by the form on which information appears.
             label: Export PDF
           export_csv:
-            explanation: User can generate a CSV file export from the incident list
-              or incident show pages, which contains all fields to which the current
-              user has access, for one, multiple, or all incidents to which the user
+            explanation: User can generate a CSV file export from the prevention list
+              or prevention show pages, which contains all fields to which the current
+              user has access, for one, multiple, or all preventions to which the user
               has access.
             label: Export CSV
           export_custom:
             label: Export custom
           export_incident_recorder_xls:
             explanation: User can generate a specialized XLS file export which allows
-              for data exchange with the GBV Incident Recorder tool.
-            label: Export incident recorder xls
+              for data exchange with the GBV Prevention Recorder tool.
+            label: Export prevention recorder xls
           export_mrm_violation_xls:
             explanation: User can generate a specialized Excel (XLS file) export for MRM Violations.
-              This action is available on the Incident show page and Incident list.
+              This action is available on the Prevention show page and Prevention list.
             label: Export MRM Violations to Excel (XLS file)
           export_json:
-            explanation: User can generate a JSON file export from the incident list
-              or incident show pages, which contains all fields to which the current
-              user has access, for one, multiple, or all incidents to which the user
+            explanation: User can generate a JSON file export from the prevention list
+              or prevention show pages, which contains all fields to which the current
+              user has access, for one, multiple, or all preventions to which the user
               has access. This export is mainly used for those who want to export
-              incidents from the current Primero system and then import them into
+              preventions from the current Primero system and then import them into
               a different Primero system, or into another information management system.
               The JSON format is machine-readable and not practical for most users.
             label: Export JSON
           export_list_view_csv:
-            explanation: User can generate a CSV file export from the incident list
+            explanation: User can generate a CSV file export from the prevention list
               page which contains the same fields which appear for that user on the
-              incident list. Only performed from the incident list page.
+              prevention list. Only performed from the prevention list page.
             label: Export list view CSV
           export_pdf:
-            explanation: User can generate a PDF file export from the incidents list
-              or incident show pages, which contains all fields to which the current
+            explanation: User can generate a PDF file export from the preventions list
+              or prevention show pages, which contains all fields to which the current
               user has access, for one, multiple, or all records to which the user
               has access. In the PDF export file, information is listed first by case,
               and then further organized by the form on which information appears.
             label: Export PDF
           export_xls:
-            explanation: User can generate a XLS file export from the incidents list
-              or incident show pages, which contains a custom set of forms or fields,
+            explanation: User can generate a XLS file export from the preventions list
+              or prevention show pages, which contains a custom set of forms or fields,
               for one, multiple, or all cases to which the user has access. In this
               export, each form is represented in its own tab within the XLS file.
               The user can select which forms or fields they want included in the
@@ -3094,45 +3094,45 @@ en:
               to see those forms and fields when viewing a case in the application.
             label: Excel (XLS file) export
           flag:
-            explanation: Ability to add a flag to an incident. Users with this permission
-              can also remove the flags that they have added to an incident.
+            explanation: Ability to add a flag to an prevention. Users with this permission
+              can also remove the flags that they have added to an prevention.
             label: Flag
           import:
-            explanation: Allows the user to create one or more new incidents by importing
+            explanation: Allows the user to create one or more new preventions by importing
               them from a CSV, Excel, or JSON file. The imported file must be formatted
               *very* specifically for information to be imported properly. This function
               should only be available for administrative users with advanced technical
               skills and an in-depth knowledge of how data is formatted in Primero.
-              Only performed from incident list page.
+              Only performed from prevention list page.
             label: Import
           manage:
-            explanation: Allows a user to perform all available actions on incidents.
+            explanation: Allows a user to perform all available actions on preventions.
               The "Manage" permission essentially means "everything".
             label: Manage (all permissions for this resource type)
           read:
-            explanation: Ability to view an incident
+            explanation: Ability to view an prevention
             label: View
           sync_mobile:
             explanation: This permission generally allows the user to use the mobile
               application. First, it allows the user to see the "Mark for Mobile"
-              and "Un-mark for Mobile" actions, which appear on the incident list
-              and incident show pages. Marking an incident for mobile indicates that
-              information about that incident should be synced between the user's
-              mobile device and the web application, while un-marking an incident
+              and "Un-mark for Mobile" actions, which appear on the prevention list
+              and prevention show pages. Marking an prevention for mobile indicates that
+              information about that prevention should be synced between the user's
+              mobile device and the web application, while un-marking an prevention
               for mobile stops this syncing from happening. Users without this permission
               also cannot sync their mobile devices with the web application in general,
-              meaning that they cannot use the mobile app to manage incidents.
+              meaning that they cannot use the mobile app to manage Preventions.
             label: Sync with mobile device
           write:
             explanation: Ability to click the "Edit" button, update information about
-              the incident, and click "Save". Also allows the user to disable or enable
-              an incident.
+              the prevention, and click "Save". Also allows the user to disable or enable
+              an prevention.
             label: Edit
         explanation: Represents an event which has occurred. These are usually
-          incidents of abuse or violence, though they can also correspond to
-          events like encounters with law enforcement. Incidents are often
+          preventions of abuse or violence, though they can also correspond to
+          events like encounters with law enforcement. Preventions are often
           linked to Cases.
-        label: Incident
+        label: Prevention
       is_manager:
         explanation: Applies to any user role which generally supervises other users.
           This allows a user to see dashboards and filters which help a user manage
@@ -3274,7 +3274,7 @@ en:
             explanation: Allows the user to cache registry records for usage offline.
             label: Mark for Offline
         explanation: This can represent an individual or institution which need to be linked
-          to other records like cases or incidents, are very numerous, and are repeatedly
+          to other records like cases or preventions, are very numerous, and are repeatedly
           updated with new information. They are similar to lookups, but with a more complex
           set of information for each entry.
         label: Registry Record

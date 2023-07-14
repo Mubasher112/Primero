@@ -220,6 +220,7 @@
     "printWidth": 120
   },
   "dependencies": {
-    "@welldone-software/why-did-you-render": "^6.2.0"
+    "@welldone-software/why-did-you-render": "^6.2.0",
+    "react-chartjs-2": "^2.11.1"
   }
 }

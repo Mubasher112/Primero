@@ -1,56 +1,89 @@
-*.gem
-*.rbc
-/.config
-/coverage/
-/InstalledFiles
-/pkg/
-/spec/reports/
-/spec/examples.txt
-/test/tmp/
-/test/version_tmp/
-/tmp/
-
-# Used by dotenv library to load environment variables.
-# .env
-
-# Ignore Byebug command history file.
+*.deb
+*.iml
+*.irb-history
+*.msi
+*.orig
+*.pem
+*.pid
+*.swo
+*.swp
+*.xls
+*.xlsx
+*swp
+*~
+.DS_Store
+.autotest
+.buildpath
+.bundle
 .byebug_history
-
-## Specific to RubyMotion:
-.dat*
-.repl_history
-build/
-*.bridgesupport
-build-iPhoneOS/
-build-iPhoneSimulator/
-
-## Specific to RubyMotion (use of CocoaPods):
-#
-# We recommend against adding the Pods directory to your .gitignore. However
-# you should judge for yourself, the pros and cons are mentioned at:
-# https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
-#
-# vendor/Pods/
-
-## Documentation cache and generated files:
-/.yardoc/
-/_yardoc/
-/doc/
-/rdoc/
-
-## Environment normalization:
-/.bundle/
-/vendor/bundle
-/lib/bundler/man/
-
-# for a library or gem, you might want to ignore these files since the code is
-# intended to run in multiple environments; otherwise, check them in:
-# Gemfile.lock
-# .ruby-version
-# .ruby-gemset
-
-# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
+.idea/*
+.powrc
+.project
+.redcar/*
+.ruby-gemset
 .rvmrc
-
-# Used by RuboCop. Remote config files pulled in from inherit_from directive.
-# .rubocop-https?--*
+.vagrant
+.vscode
+.~*
+/node_modules
+/public/worker.js
+/public/options
+/public/packs
+/public/packs-test
+<Solr_data_dir>
+Guardfile
+config/backburner.yml
+config/database.yml
+config/locales.yml
+config/mailers.yml
+config/sunspot.yml
+config/i18n-manifest.txt
+cookbook/cookbooks/
+cookbook/nodes/
+cookbook/private/
+coverage/
+db/couch/*
+debug.html
+dev-node.json
+docker/production.env
+docker/local.env
+encrypted_file
+jmeter/*.csv
+jmeter/*.log
+jmeter/*.svg
+jmeter/logs/
+log/*
+primero-configuration
+public/assets/
+rerun.txt
+solr/data
+solr/default
+solr/development
+solr/pids
+solr/test
+npm-debug.log*
+npm-error.log*
+.tmp
+.npm-integrity
+.nyc_output
+/reports
+spec/reports/
+storage/
+tags
+tags.lock
+tmp/*
+vendor/bundle/
+vendor/cache/
+vendor/ruby/
+venv/*
+public/translations*
+public/javascripts/*
+public/manifests/*
+public/worker.js
+public/precache-manifest*
+configuration_translation_export*
+/ansible/roles/qi-*
+/ansible/ansible_collections
+/ansible/inventory/inventory.yml
+/ansible/roles/application-primero/files/local.env
+/ansible/secrets.yml

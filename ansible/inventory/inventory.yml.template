@@ -18,6 +18,7 @@ all:
       build_docker_tag: 'latest'
       build_docker_container_registry: ''
       # If you want to seed from a private configuration repo
+      pull_primero_from_git: 'true'
       primero_configuration_repo: 'git@bitbucket.org:quoin/primero-x-configuration.git'
       primero_configuration_repo_branch: 'main'
       primero_configuration_path: 'directory/of/config/loader/script'

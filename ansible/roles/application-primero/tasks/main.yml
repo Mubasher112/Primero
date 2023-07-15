@@ -11,7 +11,7 @@
 
 - name: 'Checking for external certs on remote machine'
   stat:
-    path: '/srv/primero{{ nginx_ssl_cert_path }}'
+    path: '/srv/Primero{{ nginx_ssl_cert_path }}'
   register: external_certs_crt
   when: use_external_certs == 'true'
   tags:
@@ -19,7 +19,7 @@
 
 - name: 'Checking for external certs (key) on remote machine'
   stat:
-    path: '/srv/primero{{ nginx_ssl_key_path }}'
+    path: '/srv/Primero{{ nginx_ssl_key_path }}'
   register: external_certs_key
   when: use_external_certs == 'true'
   tags:
@@ -34,7 +34,7 @@
 - name: 'Pull Primero from Git'
   git:
     repo: '{{ primero_repo|default("https://github.com/primeroIMS/primero.git") }}'
-    dest: '/srv/primero/'
+    dest: '/srv/Primero/'
     version: '{{ primero_repo_branch }}'
     key_file: '/root/.ssh/primero_deployment_key'
     accept_hostkey: 'yes'
@@ -46,7 +46,7 @@
 - name: 'create the local.env file'
   template:
     src: local.env.j2
-    dest: '/srv/primero/docker/local.env'
+    dest: '/srv/Primero/docker/local.env'
     mode: 'u=rw'
   become: yes
   tags:
@@ -57,9 +57,9 @@
   ansible.builtin.shell: |
     if test -f "{{ env_override_path | default('/home/' + ansible_user + '/overrides.env') }}"; then
       cat {{ env_override_path }} | grep -vE "^#" > tmp0
-      cat /srv/primero/docker/local.env >> tmp0
+      cat /srv/Primero/docker/local.env >> tmp0
 
-      awk -F "=" '!a[$1]++' tmp0 > tmp1 && mv tmp1 /srv/primero/docker/local.env && rm tmp0
+      awk -F "=" '!a[$1]++' tmp0 > tmp1 && mv tmp1 /srv/Primero/docker/local.env && rm tmp0
     else
       echo "No overrides file"
     fi
@@ -72,7 +72,7 @@
   command: |
     ./build.sh all -t '{{ build_docker_tag }}' -r '{{ build_docker_container_registry }}' -l
   args:
-    chdir: '/srv/primero/docker'
+    chdir: '/srv/Primero/docker'
   tags:
   - 'never'
   - 'build'
@@ -80,7 +80,7 @@
 - name: 'Pull Primero configuration from Git'
   git:
     repo: '{{ primero_configuration_repo }}'
-    dest: '/srv/primero-configuration/'
+    dest: '/srv/Primero-configuration/'
     version: '{{ primero_configuration_repo_branch|default("main") }}'
     key_file: '/root/.ssh/primero_deployment_key'
     accept_hostkey: 'yes'
@@ -92,7 +92,7 @@
 
 - name: Creating configuration dir
   file:
-    path: /srv/primero-configuration
+    path: /srv/Primero-configuration
     state: directory
   become: yes
   tags:
@@ -102,7 +102,7 @@
 - name: Extract config into /srv
   unarchive:
     src: /home/{{ ansible_user }}/primero-configuration.tar.gz
-    dest: /srv/primero-configuration
+    dest: /srv/Primero-configuration
     remote_src: yes
     extra_opts:
     - --strip-components=1
@@ -114,9 +114,9 @@
 
 - name: 'configure Primero with a custom configuration'
   command: |
-    ./compose.configure.sh /srv/primero-configuration/ '{{ primero_configuration_path }}'
+    ./compose.configure.sh /srv/Primero-configuration/ '{{ primero_configuration_path }}'
   args:
-    chdir: '/srv/primero/docker'
+    chdir: '/srv/Primero/docker'
   environment:
     PRIMERO_TAG: '{{ primero_tag|default("latest") }}'
     PRIMERO_IMAGE_REPOSITORY: '{{ primero_image_repositroy|default("primeroims") }}'
@@ -133,7 +133,7 @@
   command: |
     ./compose.configure.sh
   args:
-    chdir: '/srv/primero/docker'
+    chdir: '/srv/Primero/docker'
   environment:
     PRIMERO_TAG: '{{ primero_tag|default("latest") }}'
     PRIMERO_IMAGE_REPOSITORY: '{{ primero_image_repositroy|default("primeroims") }}'
@@ -149,7 +149,7 @@
   command: |
     ./compose.prod.sh pull
   args:
-    chdir: '/srv/primero/docker'
+    chdir: '/srv/Primero/docker'
   environment:
     PRIMERO_TAG: '{{ primero_tag|default("latest") }}'
     PRIMERO_IMAGE_REPOSITORY: '{{ primero_image_repositroy|default("primeroims") }}'
@@ -165,7 +165,7 @@
   command: |
     ./compose.prod.sh up -d --force-recreate --no-build
   args:
-    chdir: '/srv/primero/docker'
+    chdir: '/srv/Primero/docker'
   environment:
     PRIMERO_TAG: '{{ primero_tag|default("latest") }}'
     PRIMERO_IMAGE_REPOSITORY: '{{ primero_image_repositroy|default("primeroims") }}'
@@ -178,7 +178,7 @@
 
 - name: 'create/update docker version file'
   copy:
-    dest: '/srv/primero/docker-app-version.txt'
+    dest: '/srv/Primero/docker-app-version.txt'
     content: '{{ primero_tag|default("latest") }}'
   become: yes
   tags:
@@ -187,7 +187,7 @@
 
 - name: 'copy docker cleanup script'
   copy:
-    dest: '/srv/primero/primero-docker-cleanup.sh'
+    dest: '/srv/Primero/primero-docker-cleanup.sh'
     src: 'primero-docker-cleanup.sh'
     mode: 'u=rwx,go=rx'
   become: yes
@@ -199,7 +199,7 @@
   cron:
     name: 'pruning docker images'
     special_time: daily
-    job: /srv/primero/primero-docker-cleanup.sh
+    job: /srv/Primero/primero-docker-cleanup.sh
     user: root
   become: yes
   tags:

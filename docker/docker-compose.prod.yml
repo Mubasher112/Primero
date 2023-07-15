@@ -9,9 +9,9 @@ services:
     volumes:
       - 'certbot_certificates:/etc/letsencrypt'
       - 'certbot_challenges:/usr/share/nginx/html/.well-known/acme-challenge'
-      - public:/srv/primero/application/public
+      - public:/srv/Primero/application/public
       - selfsigned_certs:/certs
-      - /srv/primero/external-certs:/external-certs
+      - /srv/Primero/external-certs:/external-certs
     env_file:
       - docker/defaults.env
       - docker/local.env
@@ -28,7 +28,7 @@ services:
       - docker/local.env
   worker:
     volumes:
-      - public:/srv/primero/application/public
+      - public:/srv/Primero/application/public
     env_file:
       - docker/defaults.env
       - docker/local.env

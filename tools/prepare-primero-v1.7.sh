@@ -25,11 +25,11 @@ disable_supervisor_passenger(){
     systemctl reset-failed
 
     #Move old logfiles
-    mv /srv/primero/logs/couch_watcher/output.log /srv/primero/logs/couch_watcher/output.log.old
-    chown primero:primero /srv/primero/logs/couch_watcher/output.log.old
+    mv /srv/Primero/logs/couch_watcher/output.log /srv/Primero/logs/couch_watcher/output.log.old
+    chown primero:primero /srv/Primero/logs/couch_watcher/output.log.old
 
-    mv /srv/primero/application/tmp/couch_watcher_history.json /srv/primero/application/tmp/couch_watcher_history.json.old
-    chown primero:primero /srv/primero/application/tmp/couch_watcher_history.json.old
+    mv /srv/Primero/application/tmp/couch_watcher_history.json /srv/Primero/application/tmp/couch_watcher_history.json.old
+    chown primero:primero /srv/Primero/application/tmp/couch_watcher_history.json.old
 }
 
 install_couch_2_2(){

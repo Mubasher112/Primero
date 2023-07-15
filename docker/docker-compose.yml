@@ -14,7 +14,7 @@ services:
       - solr
     volumes:
       - public:/share/public
-      - storage:/srv/Primero/application/storage
+      - storage:/srv/primero/application/storage
     env_file:
       - docker/defaults.env
     stdin_open: true
@@ -25,7 +25,7 @@ services:
     depends_on:
       - solr
     volumes:
-      - storage:/srv/Primero/application/storage
+      - storage:/srv/primero/application/storage
     env_file:
       - docker/defaults.env
     command: ["rails", "jobs:work"]

@@ -86,6 +86,6 @@ FormSection.create_or_update!(
   fields: cp_incident_fields,
   is_first_tab: true,
   editable: true,
-  name_en: 'CP Incident',
-  description_en: 'CP Incident'
+  name_en: 'CP Prevention',
+  description_en: 'CP Prevention',
 )

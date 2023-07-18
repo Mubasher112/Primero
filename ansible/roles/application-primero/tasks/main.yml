@@ -71,6 +71,7 @@
 - name: 'build the Docker containers'
   command: |
     ./build.sh all -t '{{ build_docker_tag }}' -r '{{ build_docker_container_registry }}' -l
+    ./build.sh application -t '{{ build_docker_tag }}' -r '{{ build_docker_container_registry }}' -l
   args:
     chdir: '/srv/primero/docker'
   tags:
@@ -145,21 +146,6 @@
   - 'configure'
   - 'configure-localized'
 
-- name: 'Pull docker images'
-  command: |
-    ./compose.prod.sh pull
-  args:
-    chdir: '/srv/primero/docker'
-  environment:
-    PRIMERO_TAG: '{{ primero_tag|default("latest") }}'
-    PRIMERO_IMAGE_REPOSITORY: '{{ primero_image_repositroy|default("primeroims") }}'
-    PRIMERO_DEPLOY_NODB: '{{ primero_deploy_nodb|default("false") }}'
-    PRIMERO_POSTGRES_VERSION: '{{ primero_postgres_version }}'
-  when: always_pull is defined
-  become: yes
-  tags:
-  - 'never'
-  - 'start'
 
 - name: '(re)start the Docker containers'
   command: |

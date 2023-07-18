@@ -58,6 +58,7 @@ RUN set -euox pipefail \
 # Run npm ci
 COPY [ "package.json", "package-lock.json", "$APP_ROOT/" ]
 
+RUN npm install
 RUN set -euox pipefail \
         ; npm ci
 

@@ -11,6 +11,7 @@ import { OfflineAlert } from "../../disable-offline";
 import { usePermissions, ACTIONS, RESOURCES } from "../../permissions";
 import { RECORD_PATH } from "../../../config";
 import { useMemoizedSelector } from "../../../libs";
+
 import {
   Approvals,
   CasesBySocialWorker,
@@ -29,7 +30,6 @@ import {
   WorkflowTeamCases
 } from "./components";
 import NAMESPACE from "./namespace";
-import { NAME } from "./constants";
 import { fetchDashboards, fetchFlags } from "./action-creators";
 
 // Custom PercentageTile component
@@ -42,7 +42,7 @@ const PercentageTile = ({ label, percentage, count, color }) => {
         textAlign: "center",
         backgroundColor: color,
         flex: "1",
-        margin: "0 5px",
+        margin: "0 5px"
       }}
     >
       <div
@@ -50,14 +50,14 @@ const PercentageTile = ({ label, percentage, count, color }) => {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          alignItems: "center",
+          alignItems: "center"
         }}
       >
         <div
           style={{
             display: "flex",
             alignItems: "center",
-            marginBottom: "5px",
+            marginBottom: "5px"
           }}
         >
           <h2
@@ -65,7 +65,7 @@ const PercentageTile = ({ label, percentage, count, color }) => {
               marginRight: "5px",
               fontSize: "30px",
               fontWeight: "bold",
-              color: "white",
+              color: "white"
             }}
           >
             {percentage}%
@@ -75,7 +75,7 @@ const PercentageTile = ({ label, percentage, count, color }) => {
               fontSize: "30px",
               fontWeight: "bold",
               color: "white",
-              margin: 0,
+              margin: 0
             }}
           >
             ({count})
@@ -86,8 +86,6 @@ const PercentageTile = ({ label, percentage, count, color }) => {
     </div>
   );
 };
-
-
 
 const Dashboard = () => {
   const i18n = useI18n();
@@ -102,11 +100,11 @@ const Dashboard = () => {
     }
   }, []);
 
-  const userPermissions = useMemoizedSelector((state) => getPermissions(state));
-  const loading = useMemoizedSelector((state) => getLoading(state, NAMESPACE));
-  const errors = useMemoizedSelector((state) => getErrors(state, NAMESPACE));
-  const loadingFlags = useMemoizedSelector((state) => getLoading(state, [NAMESPACE, "flags"]));
-  const flagsErrors = useMemoizedSelector((state) => getErrors(state, [NAMESPACE, "flags"]));
+  const userPermissions = useMemoizedSelector(state => getPermissions(state));
+  const loading = useMemoizedSelector(state => getLoading(state, NAMESPACE));
+  const errors = useMemoizedSelector(state => getErrors(state, NAMESPACE));
+  const loadingFlags = useMemoizedSelector(state => getLoading(state, [NAMESPACE, "flags"]));
+  const flagsErrors = useMemoizedSelector(state => getErrors(state, [NAMESPACE, "flags"]));
 
   const indicatorProps = {
     overlay: true,
@@ -124,229 +122,240 @@ const Dashboard = () => {
 
   // Chart data and options
   const [barChartData, setBarChartData] = useState({
-    labels: ['Quetta', 'Khuzdar', 'Chaman', 'Gawadar', 'Zhob'],
+    labels: ["Quetta", "Khuzdar", "Chaman", "Gawadar", "Zhob"],
     datasets: [
       {
-        label: 'No of Cases',
+        label: "No of Cases",
         data: [10, 2, 3, 5, 1],
-        backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(54, 162, 235, 0.2)'],
-        borderColor: ['rgba(75, 192, 192, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(54, 162, 235, 1)'],
-        borderWidth: 1,
-      },
-    ],
+        backgroundColor: [
+          "rgba(75, 192, 192, 0.2)",
+          "rgba(54, 162, 235, 0.2)",
+          "rgba(255, 206, 86, 0.2)",
+          "rgba(75, 192, 192, 0.2)",
+          "rgba(54, 162, 235, 0.2)"
+        ],
+        borderColor: [
+          "rgba(75, 192, 192, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+          "rgba(75, 192, 192, 1)",
+          "rgba(54, 162, 235, 1)"
+        ],
+        borderWidth: 1
+      }
+    ]
   });
 
   const [closedCasesByAgeChartData, setClosedCasesByAgeChartData] = useState({
-    labels: ['Age (Years)'],
+    labels: ["Age (Years)"],
     datasets: [
       {
-        label: 'Exploitation',
+        label: "Exploitation",
         data: [0],
-        backgroundColor: 'LightCoral',
-        borderColor: 'LightCoral',
-        borderWidth: 1,
+        backgroundColor: "LightCoral",
+        borderColor: "LightCoral",
+        borderWidth: 1
       },
       {
-        label: 'Mental Violence',
+        label: "Mental Violence",
         data: [0],
-        backgroundColor: 'Orange',
-        borderColor: 'Orange',
-        borderWidth: 1,
+        backgroundColor: "Orange",
+        borderColor: "Orange",
+        borderWidth: 1
       },
       {
-        label: 'Neglect And Negligent Treatment',
+        label: "Neglect And Negligent Treatment",
         data: [0],
-        backgroundColor: 'SeaGreen',
-        borderColor: 'SeaGreen',
-        borderWidth: 1,
+        backgroundColor: "SeaGreen",
+        borderColor: "SeaGreen",
+        borderWidth: 1
       },
       {
-        label: 'Physical Violence or Injury',
+        label: "Physical Violence or Injury",
         data: [0],
-        backgroundColor: 'CornflowerBlue',
-        borderColor: 'CornflowerBlue',
-        borderWidth: 1,
+        backgroundColor: "CornflowerBlue",
+        borderColor: "CornflowerBlue",
+        borderWidth: 1
       },
       {
-        label: 'Sexual Abuse and Exploitation',
+        label: "Sexual Abuse and Exploitation",
         data: [0],
-        backgroundColor: 'Purple',
-        borderColor: 'Purple',
-        borderWidth: 1,
-      },
-    ],
+        backgroundColor: "Purple",
+        borderColor: "Purple",
+        borderWidth: 1
+      }
+    ]
   });
 
   const [closedCasesBySexChartData, setClosedCasesBySexChartData] = useState({
     datasets: [
       {
-        label: 'Male',
+        label: "Male",
         data: [5],
-        backgroundColor: 'CornflowerBlue',
-        borderColor: 'CornflowerBlue',
-        borderWidth: 1,
+        backgroundColor: "CornflowerBlue",
+        borderColor: "CornflowerBlue",
+        borderWidth: 1
       },
       {
-        label: 'Female',
+        label: "Female",
         data: [2],
-        backgroundColor: 'LightCoral',
-        borderColor: 'LightCoral',
-        borderWidth: 1,
+        backgroundColor: "LightCoral",
+        borderColor: "LightCoral",
+        borderWidth: 1
       },
       {
-        label: 'Transgender',
+        label: "Transgender",
         data: [0],
-        backgroundColor: 'Orange',
-        borderColor: 'Orange',
-        borderWidth: 1,
+        backgroundColor: "Orange",
+        borderColor: "Orange",
+        borderWidth: 1
       }
     ],
     labels: [
-      'Physical Violence or Injury',
-      'Mental Violence', 
-      'Neglect And Negligent Treatment',
-      'Exploitation',
-      'Sexual Abuse and Exploitation'
-    ],
+      "Physical Violence or Injury",
+      "Mental Violence",
+      "Neglect And Negligent Treatment",
+      "Exploitation",
+      "Sexual Abuse and Exploitation"
+    ]
   });
 
-
   const [casesAtGlanceData, setCasesAtGlanceData] = useState({
-    labels: ['Registerd (Open)', 'Significant Harm (Total)', 'Closed', 'Assigned to Me'],
+    labels: ["Registerd (Open)", "Significant Harm (Total)", "Closed", "Assigned to Me"],
     datasets: [
       {
-        label: 'Cases Status',
+        label: "Cases Status",
         data: [300, 10, 0, 300],
-        backgroundColor: ['CornflowerBlue','LightCoral', 'Purple', 'Orange'],
-        borderColor: ['CornflowerBlue','LightCoral', 'Purple', 'Orange'],
-        borderWidth: 1,
-      },
-    ],
+        backgroundColor: ["CornflowerBlue", "LightCoral", "Purple", "Orange"],
+        borderColor: ["CornflowerBlue", "LightCoral", "Purple", "Orange"],
+        borderWidth: 1
+      }
+    ]
   });
 
   const barChartOptions = {
     responsive: true,
     scales: {
       y: {
-        beginAtZero: true,
-      },
-    },
+        beginAtZero: true
+      }
+    }
   };
 
-
   const [lineChartData, setLineChartData] = useState({
-    labels: ['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+    labels: ["Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun"],
     datasets: [
       {
-        label: 'Closed',
+        label: "Closed",
         data: [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        backgroundColor: 'transparent',
-        borderColor: 'CornflowerBlue',
-        borderWidth: 1,
+        backgroundColor: "transparent",
+        borderColor: "CornflowerBlue",
+        borderWidth: 1
       },
       {
-        label: 'Registered',
+        label: "Registered",
         data: [0, 0, 0, 90, 0, 70, 0, 0, 0],
-        backgroundColor: 'transparent',
-        borderColor: 'Orange',
-        borderWidth: 1,
-      },
-    ],
+        backgroundColor: "transparent",
+        borderColor: "Orange",
+        borderWidth: 1
+      }
+    ]
   });
 
   const lineChartOptions = {
     responsive: true,
     scales: {
       y: {
-        beginAtZero: true,
-      },
-    },
+        beginAtZero: true
+      }
+    }
   };
 
   const [significantHarmChartData, setSignificantHarmChartData] = useState({
-    labels: ['Physical', 'Mental', 'Neglect', 'Exploitation', 'Sexual Abuse'],
+    labels: ["Physical", "Mental", "Neglect", "Exploitation", "Sexual Abuse"],
     datasets: [
       {
-        label: 'Significant Harm Data',
+        label: "Significant Harm Data",
         data: [0, 60, 40, 0, 0],
-        backgroundColor: ['LightCoral', 'CornflowerBlue','Orange', 'Purple', 'Brown'],
-        borderColor: 'white',
-        borderWidth: 1,
-      },
-    ],
+        backgroundColor: ["LightCoral", "CornflowerBlue", "Orange", "Purple", "Brown"],
+        borderColor: "white",
+        borderWidth: 1
+      }
+    ]
   });
 
   const [casesWithCourtOrdersChartData, setCasesWithCoourtOrdersChartData] = useState({
-    labels: ['Supervision', 'Custody and Replacement', 'Interim', 'Seek and Find'],
+    labels: ["Supervision", "Custody and Replacement", "Interim", "Seek and Find"],
     datasets: [
       {
-        label: 'Cases With Court OrdersData',
+        label: "Cases With Court OrdersData",
         data: [0, 0, 100, 0, 0],
-        backgroundColor: ['LightCoral', 'CornflowerBlue','Orange', 'Purple'],
-        borderColor: 'white',
-        borderWidth: 1,
-      },
-    ],
+        backgroundColor: ["LightCoral", "CornflowerBlue", "Orange", "Purple"],
+        borderColor: "white",
+        borderWidth: 1
+      }
+    ]
   });
 
   const [casesRequiringChartData, setCasesRequiringChartData] = useState({
-    labels: ['Male', 'Female', 'Transgender'],
+    labels: ["Male", "Female", "Transgender"],
     datasets: [
       {
-        label: 'Cases Requiring Alternatie Data',
-        data: [50, 50, 0,],
-        backgroundColor: ['CornflowerBlue', 'LightCoral','Orange'],
-        borderColor: 'white',
-        borderWidth: 1,
-      },
-    ],
+        label: "Cases Requiring Alternatie Data",
+        data: [50, 50, 0],
+        backgroundColor: ["CornflowerBlue", "LightCoral", "Orange"],
+        borderColor: "white",
+        borderWidth: 1
+      }
+    ]
   });
 
   const [doughnutChartData, setDoughnutChartData] = useState({
-    labels: ['Label 1', 'Label 2', 'Label 3', 'Label 4', 'Label 5'],
+    labels: ["Label 1", "Label 2", "Label 3", "Label 4", "Label 5"],
     datasets: [
       {
-        label: 'Doughnut Data',
+        label: "Doughnut Data",
         data: [10, 20, 30, 40, 50],
-        backgroundColor: ['LightCoral', 'CornflowerBlue', 'Purple', 'Orange', 'MediumSeaGreen'],
-        borderColor: 'white',
-        borderWidth: 1,
-      },
-    ],
+        backgroundColor: ["LightCoral", "CornflowerBlue", "Purple", "Orange", "MediumSeaGreen"],
+        borderColor: "white",
+        borderWidth: 1
+      }
+    ]
   });
 
   const doughnutChartOptions = {
-    responsive: true,
+    responsive: true
   };
 
-  const [casesRequiringSpecialConsiderationChartData, setCasesRequiringSpecialConsiderationChartDataChartData] = useState({
-    labels: ['Minority Cases', 'CwD Cases', 'Cases with BISP Benif'],
-    datasets: [
-      {
-        label: 'Pie Data',
-        data: [8, 80, 12],
-        backgroundColor: ['LightCoral', 'CornflowerBlue','Orange'],
-        borderColor: 'white',
-        borderWidth: 1,
-      },
-    ],
-  });
+  const [casesRequiringSpecialConsiderationChartData, setCasesRequiringSpecialConsiderationChartDataChartData] =
+    useState({
+      labels: ["Minority Cases", "CwD Cases", "Cases with BISP Benif"],
+      datasets: [
+        {
+          label: "Pie Data",
+          data: [8, 80, 12],
+          backgroundColor: ["LightCoral", "CornflowerBlue", "Orange"],
+          borderColor: "white",
+          borderWidth: 1
+        }
+      ]
+    });
 
   const [staffBySexChartData, setStaffBySexChartData] = useState({
-    labels: ['Male', 'Female', 'Transgender'],
+    labels: ["Male", "Female", "Transgender"],
     datasets: [
       {
-        label: 'Pie Data',
+        label: "Pie Data",
         data: [100, 0, 0],
-        backgroundColor: ['LightCoral', 'CornflowerBlue', 'Orange'],
-        borderColor: 'white',
-        borderWidth: 1,
-      },
-    ],
+        backgroundColor: ["LightCoral", "CornflowerBlue", "Orange"],
+        borderColor: "white",
+        borderWidth: 1
+      }
+    ]
   });
-  
+
   const pieChartOptions = {
-    responsive: true,
+    responsive: true
   };
 
   return (
@@ -356,12 +365,20 @@ const Dashboard = () => {
         <OfflineAlert text={i18n.t("messages.dashboard_offline")} />
         {/* Display PercentageTiles */}
         <Grid container spacing={3}>
+          <Grid item xl={12} md={12} xs={12}>
+            <h4>Registered Cases Vs Services Provided</h4>
+          </Grid>
           <Grid item xl={12} md={12} xs={12} style={{ display: "flex", justifyContent: "space-between" }}>
             <PercentageTile label="Physical Violance or Injury" percentage={75} count={3} color="LightCoral" />
             <PercentageTile label="Mental Violance" percentage={50} count={2} color="CornflowerBlue" />
             <PercentageTile label="Neglect and Negligent Treatment" percentage={40} count={4} color="Purple" />
             <PercentageTile label="Exploitation" percentage={90} count={5} color="Orange" />
-            <PercentageTile label="Sexual Abuse and Sexual Exploitation" percentage={60} count={1} color="MediumSeaGreen" />
+            <PercentageTile
+              label="Sexual Abuse and Sexual Exploitation"
+              percentage={60}
+              count={1}
+              color="MediumSeaGreen"
+            />
           </Grid>
         </Grid>
         <Grid container spacing={3}>
@@ -478,7 +495,25 @@ const Dashboard = () => {
             </div>
           </Grid>
         </Grid>
-        
+
+        <Grid container spacing={3}>
+          <Grid item xl={12} md={12} xs={12}>
+            <h4>Percentage of Children who received Child Protection Services</h4>
+          </Grid>
+          <Grid item xl={12} md={12} xs={12} style={{ display: "flex", justifyContent: "space-between" }}>
+            <PercentageTile label="Physical Violance or Injury" percentage={75} count={3} color="LightCoral" />
+            <PercentageTile label="Mental Violance" percentage={50} count={2} color="CornflowerBlue" />
+            <PercentageTile label="Neglect and Negligent Treatment" percentage={40} count={4} color="Purple" />
+            <PercentageTile label="Exploitation" percentage={90} count={5} color="Orange" />
+            <PercentageTile
+              label="Sexual Abuse and Sexual Exploitation"
+              percentage={60}
+              count={1}
+              color="MediumSeaGreen"
+            />
+          </Grid>
+        </Grid>
+
         <Grid container spacing={3}>
           <Grid item xl={9} md={8} xs={12}>
             <Overview loadingIndicator={indicatorProps} userPermissions={userPermissions} />

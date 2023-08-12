@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Grid } from "@material-ui/core";
 import { Bar, Line, Doughnut, Pie } from "react-chartjs-2";
+import PropTypes from "prop-types";
 
 import { useI18n } from "../../i18n";
 import PageContainer, { PageHeading, PageContent } from "../../page";
@@ -87,6 +88,16 @@ const PercentageTile = ({ label, percentage, count, color }) => {
   );
 };
 
+PercentageTile.displayName = "PercentageTile";
+
+PercentageTile.propTypes = {
+  color: PropTypes.string.isRequired,
+  count: PropTypes.number.isRequired,
+  label: PropTypes.string.isRequired,
+  percentage: PropTypes.number.isRequired
+};
+
+// eslint-disable-next-line react/display-name
 const Dashboard = () => {
   const i18n = useI18n();
   const dispatch = useDispatch();
@@ -121,6 +132,7 @@ const Dashboard = () => {
   };
 
   // Chart data and options
+  // eslint-disable-next-line no-unused-vars
   const [barChartData, setBarChartData] = useState({
     labels: ["Quetta", "Khuzdar", "Chaman", "Gawadar", "Zhob"],
     datasets: [
@@ -146,6 +158,7 @@ const Dashboard = () => {
     ]
   });
 
+  // eslint-disable-next-line no-unused-vars
   const [closedCasesByAgeChartData, setClosedCasesByAgeChartData] = useState({
     labels: ["Age (Years)"],
     datasets: [
@@ -187,6 +200,7 @@ const Dashboard = () => {
     ]
   });
 
+  // eslint-disable-next-line no-unused-vars
   const [closedCasesBySexChartData, setClosedCasesBySexChartData] = useState({
     datasets: [
       {
@@ -220,6 +234,7 @@ const Dashboard = () => {
     ]
   });
 
+  // eslint-disable-next-line no-unused-vars
   const [casesAtGlanceData, setCasesAtGlanceData] = useState({
     labels: ["Registerd (Open)", "Significant Harm (Total)", "Closed", "Assigned to Me"],
     datasets: [
@@ -242,6 +257,7 @@ const Dashboard = () => {
     }
   };
 
+  // eslint-disable-next-line no-unused-vars
   const [lineChartData, setLineChartData] = useState({
     labels: ["Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun"],
     datasets: [
@@ -271,6 +287,7 @@ const Dashboard = () => {
     }
   };
 
+  // eslint-disable-next-line no-unused-vars
   const [significantHarmChartData, setSignificantHarmChartData] = useState({
     labels: ["Physical", "Mental", "Neglect", "Exploitation", "Sexual Abuse"],
     datasets: [
@@ -284,6 +301,7 @@ const Dashboard = () => {
     ]
   });
 
+  // eslint-disable-next-line no-unused-vars
   const [casesWithCourtOrdersChartData, setCasesWithCoourtOrdersChartData] = useState({
     labels: ["Supervision", "Custody and Replacement", "Interim", "Seek and Find"],
     datasets: [
@@ -297,6 +315,7 @@ const Dashboard = () => {
     ]
   });
 
+  // eslint-disable-next-line no-unused-vars
   const [casesRequiringChartData, setCasesRequiringChartData] = useState({
     labels: ["Male", "Female", "Transgender"],
     datasets: [
@@ -310,6 +329,7 @@ const Dashboard = () => {
     ]
   });
 
+  // eslint-disable-next-line no-unused-vars
   const [doughnutChartData, setDoughnutChartData] = useState({
     labels: ["Label 1", "Label 2", "Label 3", "Label 4", "Label 5"],
     datasets: [
@@ -327,6 +347,7 @@ const Dashboard = () => {
     responsive: true
   };
 
+  // eslint-disable-next-line no-unused-vars
   const [casesRequiringSpecialConsiderationChartData, setCasesRequiringSpecialConsiderationChartDataChartData] =
     useState({
       labels: ["Minority Cases", "CwD Cases", "Cases with BISP Benif"],
@@ -341,6 +362,7 @@ const Dashboard = () => {
       ]
     });
 
+  // eslint-disable-next-line no-unused-vars
   const [staffBySexChartData, setStaffBySexChartData] = useState({
     labels: ["Male", "Female", "Transgender"],
     datasets: [

@@ -34,8 +34,8 @@ describe Exporters::ManagedReportExporter do
     )
 
     Lookup.create_or_update!(
-      unique_id: 'lookup-gbv-incident-timeofday',
-      name_en: 'GBV Incident Time Of Day',
+      unique_id: 'lookup-gbv-prevention-timeofday',
+      name_en: 'GBV Prevention Time Of Day',
       lookup_values_en: [
         { id: 'morning', display_text: 'Morning (sunrise to noon)' },
         { id: 'afternoon', display_text: 'Afternoon (noon to sunset)' },
@@ -52,8 +52,8 @@ describe Exporters::ManagedReportExporter do
     )
 
     Lookup.create_or_update!(
-      unique_id: 'lookup-gbv-incident-location-type',
-      name_en: 'GBV Incident Location Type',
+      unique_id: 'lookup-gbv-prevention-location-type',
+      name_en: 'GBV Prevention Location Type',
       lookup_values_en: [
         { id: 'forest', display_text: 'Bush/Forest' },
         { id: 'garden', display_text: 'Garden/Cultivated Field' },
@@ -210,58 +210,58 @@ describe Exporters::ManagedReportExporter do
         expect(workbook.sheets.size).to eq(4)
       end
 
-      describe 'Incidents subreport' do
+      describe 'Preventions subreport' do
         it 'prints subreport headers' do
-          expect(workbook.sheet(0).row(1)).to eq(['Incidents', nil])
+          expect(workbook.sheet(0).row(1)).to eq(['Preventions', nil])
         end
 
         it 'prints report params' do
           expect(workbook.sheet(0).row(2)).to eq(
             [
-              '<html><b>Date Range: </b>This Quarter / <b>Date: </b>Date of Incident / </html>',
+              '<html><b>Date Range: </b>This Quarter / <b>Date: </b>Date of Prevention / </html>',
               nil
             ]
           )
         end
 
         it 'prints indicator tables' do
-          expect(workbook.sheet(0).row(5)).to eq(['Incidents', nil])
+          expect(workbook.sheet(0).row(5)).to eq(['Preventions', nil])
           expect(workbook.sheet(0).row(6)).to eq([nil, 'Total'])
-          expect(workbook.sheet(0).row(7)).to eq(['Number of GBV Incidents Reported', 3])
-          expect(workbook.sheet(0).row(8)).to eq(['Number of Incidents of Sexual Violence Reported', 3])
+          expect(workbook.sheet(0).row(7)).to eq(['Number of GBV Preventions Reported', 3])
+          expect(workbook.sheet(0).row(8)).to eq(['Number of Preventions of Sexual Violence Reported', 3])
           expect(workbook.sheet(0).row(9)).to eq(
-            ['Number of Incidents Reported by Survivors with Prior GBV Incidents', 1]
+            ['Number of Preventions Reported by Survivors with Prior GBV Preventions', 1]
           )
 
-          expect(workbook.sheet(0).row(12)).to eq(['Incident Type', nil])
+          expect(workbook.sheet(0).row(12)).to eq(['Prevention Type', nil])
           expect(workbook.sheet(0).row(13)).to eq([nil, 'Total'])
           expect(workbook.sheet(0).row(14)).to eq(['Forced Marriage', 1])
           expect(workbook.sheet(0).row(15)).to eq(['Rape', 1])
           expect(workbook.sheet(0).row(16)).to eq(['Sexual Assault', 1])
 
-          expect(workbook.sheet(0).row(42)).to eq(['Incident Time of Day', nil])
+          expect(workbook.sheet(0).row(42)).to eq(['Prevention Time of Day', nil])
           expect(workbook.sheet(0).row(43)).to eq([nil, 'Total'])
           expect(workbook.sheet(0).row(44)).to eq(['Afternoon (noon to sunset)', 1])
           expect(workbook.sheet(0).row(45)).to eq(['Evening/Night (sunset to sunrise)', 1])
           expect(workbook.sheet(0).row(46)).to eq(['Morning (sunrise to noon)', 1])
 
-          expect(workbook.sheet(0).row(72)).to eq(['Time Between Incident and Report Date', nil])
+          expect(workbook.sheet(0).row(72)).to eq(['Time Between Prevention and Report Date', nil])
           expect(workbook.sheet(0).row(73)).to eq([nil, 'Total'])
           expect(workbook.sheet(0).row(74)).to eq(['0-3 Days', 3])
 
           expect(workbook.sheet(0).row(100)).to eq(
-            ['Incidents of Rape, Time Elapsed between Incident and Report Date', nil]
+            ['Preventions of Rape, Time Elapsed between Incident and Report Date', nil]
           )
           expect(workbook.sheet(0).row(101)).to eq([nil, 'Total'])
           expect(workbook.sheet(0).row(102)).to eq(['0-3 Days', 1])
 
           expect(workbook.sheet(0).row(128)).to eq(
-            ['Incidents of Rape, Time Elapsed between Incident and Report Date (Health Service or Referral)', nil]
+            ['Preventions of Rape, Time Elapsed between Incident and Report Date (Health Service or Referral)', nil]
           )
           expect(workbook.sheet(0).row(129)).to eq([nil, 'Total'])
           expect(workbook.sheet(0).row(130)).to eq(['0-3 Days', 1])
 
-          expect(workbook.sheet(0).row(156)).to eq(['Incident Location', nil])
+          expect(workbook.sheet(0).row(156)).to eq(['Prevention Location', nil])
           expect(workbook.sheet(0).row(157)).to eq([nil, 'Total'])
           expect(workbook.sheet(0).row(158)).to eq(['Bush/Forest', 1])
           expect(workbook.sheet(0).row(159)).to eq(['Garden/Cultivated Field', 1])
@@ -283,7 +283,7 @@ describe Exporters::ManagedReportExporter do
         it 'prints report params' do
           expect(workbook.sheet(1).row(2)).to eq(
             [
-              '<html><b>Date Range: </b>This Quarter / <b>Date: </b>Date of Incident / </html>',
+              '<html><b>Date Range: </b>This Quarter / <b>Date: </b>Date of Prevention / </html>',
               nil
             ]
           )
@@ -348,36 +348,36 @@ describe Exporters::ManagedReportExporter do
           ]
         end
 
-        context 'Incidents subreport' do
+        context 'Preventions subreport' do
           it 'prints subreport headers' do
-            expect(workbook_grouped.sheet(0).row(1)).to match_array(['Incidents', nil, nil, nil, nil, nil])
+            expect(workbook_grouped.sheet(0).row(1)).to match_array(['Preventions', nil, nil, nil, nil, nil])
           end
 
           it 'prints report params' do
             result = '<html><b>View By: </b>Month / <b>Date Range: </b>Custom / '\
             "<b>From: </b>#{(Date.today - 2.month).strftime('%Y-%m-%d')} / "\
-            "<b>To: </b>#{(Date.today + 2.month).strftime('%Y-%m-%d')} / <b>Date: </b>Date of Incident / </html>"
+            "<b>To: </b>#{(Date.today + 2.month).strftime('%Y-%m-%d')} / <b>Date: </b>Date of Prevention / </html>"
 
             expect(workbook_grouped.sheet(0).row(2)).to match_array([result, nil, nil, nil, nil, nil])
           end
 
           it 'prints indicator tables' do
             expect(workbook_grouped.sheet(0).row(5)).to match_array(
-              ['Incidents', nil, nil, nil, nil, nil]
+              ['Preventions', nil, nil, nil, nil, nil]
             )
             expect(workbook_grouped.sheet(0).row(6)).to match_array(year_range)
             expect(workbook_grouped.sheet(0).row(7)).to match_array(
-              ['Number of GBV Incidents Reported', 0, 0, 3, 0, 0]
+              ['Number of GBV Preventions Reported', 0, 0, 3, 0, 0]
             )
             expect(workbook_grouped.sheet(0).row(8)).to match_array(
-              ['Number of Incidents Reported by Survivors with Prior GBV Incidents', 0, 0, 1, 0, 0]
+              ['Number of Preventions Reported by Survivors with Prior GBV Preventions', 0, 0, 1, 0, 0]
             )
             expect(workbook_grouped.sheet(0).row(9)).to match_array(
-              ['Number of Incidents of Sexual Violence Reported', 0, 0, 3, 0, 0]
+              ['Number of Preventions of Sexual Violence Reported', 0, 0, 3, 0, 0]
             )
 
             expect(workbook_grouped.sheet(0).row(12)).to match_array(
-              ['Incident Type', nil, nil, nil, nil, nil]
+              ['Prevention Type', nil, nil, nil, nil, nil]
             )
             expect(workbook_grouped.sheet(0).row(13)).to match_array(year_range)
             expect(workbook_grouped.sheet(0).row(14)).to match_array(['Rape', 0, 0, 1, 0, 0])
@@ -389,7 +389,7 @@ describe Exporters::ManagedReportExporter do
             )
 
             expect(workbook_grouped.sheet(0).row(41)).to match_array(
-              ['Incident Time of Day', nil, nil, nil, nil, nil]
+              ['Prevention Time of Day', nil, nil, nil, nil, nil]
             )
             expect(workbook_grouped.sheet(0).row(42)).to match_array(year_range)
             expect(workbook_grouped.sheet(0).row(43)).to match_array(
@@ -403,14 +403,14 @@ describe Exporters::ManagedReportExporter do
             )
 
             expect(workbook_grouped.sheet(0).row(70)).to match_array(
-              ['Time Between Incident and Report Date', nil, nil, nil, nil, nil]
+              ['Time Between Prevention and Report Date', nil, nil, nil, nil, nil]
             )
             expect(workbook_grouped.sheet(0).row(71)).to match_array(year_range)
             expect(workbook_grouped.sheet(0).row(72)).to match_array(['0-3 Days', 0, 0, 3, 0, 0])
 
             expect(workbook_grouped.sheet(0).row(97)).to match_array(
               [
-                'Incidents of Rape, Time Elapsed between Incident and Report Date',
+                'Preventions of Rape, Time Elapsed between Prevention and Report Date',
                 nil, nil, nil, nil, nil
               ]
             )
@@ -419,7 +419,7 @@ describe Exporters::ManagedReportExporter do
 
             expect(workbook_grouped.sheet(0).row(124)).to match_array(
               [
-                'Incidents of Rape, Time Elapsed between Incident and Report Date (Health Service or Referral)',
+                'Preventions of Rape, Time Elapsed between Incident and Report Date (Health Service or Referral)',
                 nil, nil, nil, nil, nil
               ]
             )
@@ -427,7 +427,7 @@ describe Exporters::ManagedReportExporter do
             expect(workbook_grouped.sheet(0).row(126)).to match_array(['0-3 Days', 0, 0, 1, 0, 0])
 
             expect(workbook_grouped.sheet(0).row(151)).to match_array(
-              ['Incident Location', nil, nil, nil, nil, nil]
+              ['Prevention Location', nil, nil, nil, nil, nil]
             )
             expect(workbook_grouped.sheet(0).row(152)).to match_array(year_range)
             expect(workbook_grouped.sheet(0).row(153)).to match_array(['Bush/Forest', 0, 0, 1, 0, 0])
@@ -442,11 +442,11 @@ describe Exporters::ManagedReportExporter do
               ['Referrals', nil, nil, nil, nil, nil]
             )
             expect(workbook_grouped.sheet(3).row(7)).to match_array(
-              ['Incidents Referred from Other Service Providers', nil, nil, nil, nil, nil]
+              ['Preventions Referred from Other Service Providers', nil, nil, nil, nil, nil]
             )
             expect(workbook_grouped.sheet(3).row(8)).to match_array(year_range)
             expect(workbook_grouped.sheet(3).row(9)).to match_array(
-              ['Incidents Referred from Other Service Providers', 0, 0, 1, 0, 0]
+              ['Preventions Referred from Other Service Providers', 0, 0, 1, 0, 0]
             )
           end
         end
@@ -473,15 +473,15 @@ describe Exporters::ManagedReportExporter do
           Roo::Spreadsheet.open(StringIO.new(data), extension: :xlsx)
         end
 
-        context 'Incidents subreport' do
+        context 'Preventions subreport' do
           it 'prints subreport headers' do
-            expect(workbook_grouped.sheet(0).row(1)).to match_array(['Incidents', nil, nil])
+            expect(workbook_grouped.sheet(0).row(1)).to match_array(['Preventions', nil, nil])
           end
 
           it 'prints report params' do
             result = '<html><b>View By: </b>Year / <b>Date Range: </b>Custom / '\
             "<b>From: </b>#{(Date.today - 1.year).strftime('%Y-%m-%d')} / "\
-            "<b>To: </b>#{(Date.today.end_of_year).strftime('%Y-%m-%d')} / <b>Date: </b>Date of Incident / </html>"
+            "<b>To: </b>#{(Date.today.end_of_year).strftime('%Y-%m-%d')} / <b>Date: </b>Date of Prevention / </html>"
 
             expect(workbook_grouped.sheet(0).row(2)).to match_array([result, nil, nil])
           end
@@ -492,22 +492,22 @@ describe Exporters::ManagedReportExporter do
             ]
 
             expect(workbook_grouped.sheet(0).row(5)).to match_array(
-              ['Incidents', nil, nil]
+              ['Preventions', nil, nil]
             )
             expect(workbook_grouped.sheet(0).row(6)).to match_array(year_range)
 
             expect(workbook_grouped.sheet(0).row(7)).to match_array(
-              ['Number of GBV Incidents Reported', 0, 3]
+              ['Number of GBV Preventions Reported', 0, 3]
             )
             expect(workbook_grouped.sheet(0).row(8)).to match_array(
-              ['Number of Incidents Reported by Survivors with Prior GBV Incidents', 0, 1]
+              ['Number of Preventions Reported by Survivors with Prior GBV Preventions', 0, 1]
             )
             expect(workbook_grouped.sheet(0).row(9)).to match_array(
-              ['Number of Incidents of Sexual Violence Reported', 0, 3]
+              ['Number of Preventions of Sexual Violence Reported', 0, 3]
             )
 
             expect(workbook_grouped.sheet(0).row(12)).to match_array(
-              ['Incident Type', nil, nil]
+              ['Prevention Type', nil, nil]
             )
             expect(workbook_grouped.sheet(0).row(13)).to match_array(year_range)
             expect(workbook_grouped.sheet(0).row(14)).to match_array(['Rape', 0, 1])
@@ -519,7 +519,7 @@ describe Exporters::ManagedReportExporter do
             )
 
             expect(workbook_grouped.sheet(0).row(41)).to match_array(
-              ['Incident Time of Day', nil, nil]
+              ['Prevention Time of Day', nil, nil]
             )
             expect(workbook_grouped.sheet(0).row(42)).to match_array(year_range)
             expect(workbook_grouped.sheet(0).row(43)).to match_array(
@@ -533,14 +533,14 @@ describe Exporters::ManagedReportExporter do
             )
 
             expect(workbook_grouped.sheet(0).row(70)).to match_array(
-              ['Time Between Incident and Report Date', nil, nil]
+              ['Time Between Prevention and Report Date', nil, nil]
             )
             expect(workbook_grouped.sheet(0).row(71)).to match_array(year_range)
             expect(workbook_grouped.sheet(0).row(72)).to match_array(['0-3 Days', 0, 3])
 
             expect(workbook_grouped.sheet(0).row(97)).to match_array(
               [
-                'Incidents of Rape, Time Elapsed between Incident and Report Date',
+                'Preventions of Rape, Time Elapsed between Prevention and Report Date',
                 nil, nil
               ]
             )
@@ -549,7 +549,7 @@ describe Exporters::ManagedReportExporter do
 
             expect(workbook_grouped.sheet(0).row(124)).to match_array(
               [
-                'Incidents of Rape, Time Elapsed between Incident and Report Date (Health Service or Referral)',
+                'Preventions of Rape, Time Elapsed between Incident and Report Date (Health Service or Referral)',
                 nil, nil
               ]
             )
@@ -557,7 +557,7 @@ describe Exporters::ManagedReportExporter do
             expect(workbook_grouped.sheet(0).row(126)).to match_array(['0-3 Days', 0, 1])
 
             expect(workbook_grouped.sheet(0).row(151)).to match_array(
-              ['Incident Location', nil, nil]
+              ['Prevention Location', nil, nil]
             )
             expect(workbook_grouped.sheet(0).row(152)).to match_array(year_range)
             expect(workbook_grouped.sheet(0).row(153)).to match_array(['Bush/Forest', 0, 1])
@@ -590,14 +590,14 @@ describe Exporters::ManagedReportExporter do
           Roo::Spreadsheet.open(StringIO.new(data), extension: :xlsx)
         end
 
-        context 'Incidents subreport' do
+        context 'Preventions subreport' do
           it 'prints subreport headers' do
-            expect(workbook_grouped.sheet(0).row(1)).to match_array(['Incidents', nil])
+            expect(workbook_grouped.sheet(0).row(1)).to match_array(['Preventions', nil])
           end
 
           it 'prints report params' do
             result = '<html><b>View By: </b>Quarter / <b>Date Range: </b>This Quarter / '\
-            '<b>Date: </b>Date of Incident / </html>'
+            '<b>Date: </b>Date of Prevention / </html>'
 
             expect(workbook_grouped.sheet(0).row(2)).to match_array([result, nil])
           end
@@ -606,22 +606,22 @@ describe Exporters::ManagedReportExporter do
             quarter_range = [nil, "#{Date.today.year}-Q#{(Date.today.month / 3.0).ceil}"]
 
             expect(workbook_grouped.sheet(0).row(5)).to match_array(
-              ['Incidents', nil]
+              ['Preventions', nil]
             )
             expect(workbook_grouped.sheet(0).row(6)).to match_array(quarter_range)
 
             expect(workbook_grouped.sheet(0).row(7)).to match_array(
-              ['Number of GBV Incidents Reported', 3]
+              ['Number of GBV Preventions Reported', 3]
             )
             expect(workbook_grouped.sheet(0).row(8)).to match_array(
-              ['Number of Incidents Reported by Survivors with Prior GBV Incidents', 1]
+              ['Number of Preventions Reported by Survivors with Prior GBV Preventions', 1]
             )
             expect(workbook_grouped.sheet(0).row(9)).to match_array(
-              ['Number of Incidents of Sexual Violence Reported', 3]
+              ['Number of Preventions of Sexual Violence Reported', 3]
             )
 
             expect(workbook_grouped.sheet(0).row(12)).to match_array(
-              ['Incident Type', nil]
+              ['Prevention Type', nil]
             )
             expect(workbook_grouped.sheet(0).row(13)).to match_array(quarter_range)
             expect(workbook_grouped.sheet(0).row(14)).to match_array(['Rape', 1])
@@ -633,7 +633,7 @@ describe Exporters::ManagedReportExporter do
             )
 
             expect(workbook_grouped.sheet(0).row(41)).to match_array(
-              ['Incident Time of Day', nil]
+              ['Prevention Time of Day', nil]
             )
             expect(workbook_grouped.sheet(0).row(42)).to match_array(quarter_range)
             expect(workbook_grouped.sheet(0).row(43)).to match_array(
@@ -647,14 +647,14 @@ describe Exporters::ManagedReportExporter do
             )
 
             expect(workbook_grouped.sheet(0).row(70)).to match_array(
-              ['Time Between Incident and Report Date', nil]
+              ['Time Between Prevention and Report Date', nil]
             )
             expect(workbook_grouped.sheet(0).row(71)).to match_array(quarter_range)
             expect(workbook_grouped.sheet(0).row(72)).to match_array(['0-3 Days', 3])
 
             expect(workbook_grouped.sheet(0).row(97)).to match_array(
               [
-                'Incidents of Rape, Time Elapsed between Incident and Report Date',
+                'Preventions of Rape, Time Elapsed between Prevention and Report Date',
                 nil
               ]
             )
@@ -663,7 +663,7 @@ describe Exporters::ManagedReportExporter do
 
             expect(workbook_grouped.sheet(0).row(124)).to match_array(
               [
-                'Incidents of Rape, Time Elapsed between Incident and Report Date (Health Service or Referral)',
+                'Preventions of Rape, Time Elapsed between Incident and Report Date (Health Service or Referral)',
                 nil
               ]
             )
@@ -671,7 +671,7 @@ describe Exporters::ManagedReportExporter do
             expect(workbook_grouped.sheet(0).row(126)).to match_array(['0-3 Days', 1])
 
             expect(workbook_grouped.sheet(0).row(151)).to match_array(
-              ['Incident Location', nil]
+              ['Prevention Location', nil]
             )
             expect(workbook_grouped.sheet(0).row(152)).to match_array(quarter_range)
             expect(workbook_grouped.sheet(0).row(153)).to match_array(['Bush/Forest', 1])
@@ -874,11 +874,11 @@ describe Exporters::ManagedReportExporter do
 
       it 'should export the excel' do
         expect(workbook_all.sheets.size).to eq(4)
-        expect(workbook_all.sheets).to match_array(%w[Incidents Perpetrators Survivors Referrals])
+        expect(workbook_all.sheets).to match_array(%w[Preventions Perpetrators Survivors Referrals])
       end
 
       it 'prints subreports headers' do
-        expect(workbook_all.sheet(0).row(1)).to match_array(['Incidents', nil, nil])
+        expect(workbook_all.sheet(0).row(1)).to match_array(['Preventions', nil, nil])
         expect(workbook_all.sheet(1).row(1)).to match_array(['Perpetrators', nil, nil])
         expect(workbook_all.sheet(2).row(1)).to match_array(['Survivors', nil, nil])
         expect(workbook_all.sheet(3).row(1)).to match_array(['Referrals', nil, nil])
@@ -902,22 +902,22 @@ describe Exporters::ManagedReportExporter do
       end
 
       it 'should export indicators in the correct order' do
-        expect(workbook.sheet(0).row(5).at(0)).to eq('Incidents')
-        expect(workbook.sheet(0).row(7).at(0)).to eq('Number of GBV Incidents Reported')
-        expect(workbook.sheet(0).row(8).at(0)).to eq('Number of Incidents of Sexual Violence Reported')
+        expect(workbook.sheet(0).row(5).at(0)).to eq('Preventions')
+        expect(workbook.sheet(0).row(7).at(0)).to eq('Number of GBV Preventions Reported')
+        expect(workbook.sheet(0).row(8).at(0)).to eq('Number of Preventions of Sexual Violence Reported')
         expect(workbook.sheet(0).row(9).at(0)).to eq(
-          'Number of Incidents Reported by Survivors with Prior GBV Incidents'
+          'Number of Preventions Reported by Survivors with Prior GBV Preventions'
         )
-        expect(workbook.sheet(0).row(12).at(0)).to eq('Incident Type')
-        expect(workbook.sheet(0).row(42).at(0)).to eq('Incident Time of Day')
-        expect(workbook.sheet(0).row(72).at(0)).to eq('Time Between Incident and Report Date')
+        expect(workbook.sheet(0).row(12).at(0)).to eq('Prevention Type')
+        expect(workbook.sheet(0).row(42).at(0)).to eq('Prevention Time of Day')
+        expect(workbook.sheet(0).row(72).at(0)).to eq('Time Between Prevention and Report Date')
         expect(workbook.sheet(0).row(100).at(0)).to eq(
-          'Incidents of Rape, Time Elapsed between Incident and Report Date'
+          'Preventions of Rape, Time Elapsed between Prevention and Report Date'
         )
         expect(workbook.sheet(0).row(128).at(0)).to eq(
-          'Incidents of Rape, Time Elapsed between Incident and Report Date (Health Service or Referral)'
+          'Preventions of Rape, Time Elapsed between Incident and Report Date (Health Service or Referral)'
         )
-        expect(workbook.sheet(0).row(156).at(0)).to eq('Incident Location')
+        expect(workbook.sheet(0).row(156).at(0)).to eq('Prevention Location')
       end
     end
 
@@ -944,49 +944,49 @@ describe Exporters::ManagedReportExporter do
 
       context 'should render report' do
         it 'prints subreport headers' do
-          expect(workbook_no_data.sheet(0).row(1)).to match_array(['Incidents'])
+          expect(workbook_no_data.sheet(0).row(1)).to match_array(['Preventions'])
         end
 
         it 'prints report params' do
           result = '<html><b>View By: </b>Month / <b>Date Range: </b>Custom / '\
           "<b>From: </b>#{(Date.today + 1.month).strftime('%Y-%m-%d')} / "\
-          "<b>To: </b>#{(Date.today + 2.month).strftime('%Y-%m-%d')} / <b>Date: </b>Date of Incident / </html>"
+          "<b>To: </b>#{(Date.today + 2.month).strftime('%Y-%m-%d')} / <b>Date: </b>Date of Prevention / </html>"
 
           expect(workbook_no_data.sheet(0).row(2)).to match_array([result])
         end
 
         it 'prints indicator tables' do
           expect(workbook_no_data.sheet(0).row(7)).to match_array(
-            ['Number of GBV Incidents Reported']
+            ['Number of GBV Preventions Reported']
           )
           expect(workbook_no_data.sheet(0).row(8)).to match_array(
-            ['Number of Incidents Reported by Survivors with Prior GBV Incidents']
+            ['Number of Preventions Reported by Survivors with Prior GBV Preventions']
           )
           expect(workbook_no_data.sheet(0).row(9)).to match_array(
-            ['Number of Incidents of Sexual Violence Reported']
+            ['Number of Preventions of Sexual Violence Reported']
           )
 
           expect(workbook_no_data.sheet(0).row(12)).to match_array(
-            ['Incident Type']
+            ['Prevention Type']
           )
 
           expect(workbook_no_data.sheet(0).row(14)).to match_array(
-            ['Incident Time of Day']
+            ['Prevention Time of Day']
           )
 
           expect(workbook_no_data.sheet(0).row(16)).to match_array(
-            ['Time Between Incident and Report Date']
+            ['Time Between Prevention and Report Date']
           )
           expect(workbook_no_data.sheet(0).row(18)).to match_array(
-            ['Incidents of Rape, Time Elapsed between Incident and Report Date']
+            ['Preventions of Rape, Time Elapsed between Prevention and Report Date']
           )
           expect(workbook_no_data.sheet(0).row(20)).to match_array(
             [
-              'Incidents of Rape, Time Elapsed between Incident and Report Date (Health Service or Referral)'
+              'Preventions of Rape, Time Elapsed between Incident and Report Date (Health Service or Referral)'
             ]
           )
 
-          expect(workbook_no_data.sheet(0).row(22)).to match_array(['Incident Location'])
+          expect(workbook_no_data.sheet(0).row(22)).to match_array(['Prevention Location'])
         end
       end
     end

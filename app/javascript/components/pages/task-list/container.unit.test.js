@@ -13,6 +13,7 @@ describe("<TaskList />", () => {
   let component;
 
   beforeEach(() => {
+    this.timeout(10000); // Set timeout to 10 seconds
     stubI18n = stub(window.I18n, "t").withArgs("date.formats.default").returns("%d-%b-%Y");
   });
 

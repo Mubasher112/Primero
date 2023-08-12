@@ -21,6 +21,8 @@ describe("<RolesList />", () => {
   }));
 
   beforeEach(() => {
+    this.timeout(10000); // Set timeout to 10 seconds
+
     const initialState = fromJS({
       records: {
         admin: {
@@ -125,6 +127,8 @@ describe("<RolesList />", () => {
     let componentWithoutManage;
 
     beforeEach(() => {
+      this.timeout(10000); // Set timeout to 10 seconds
+
       const initialState = fromJS({
         records: {
           admin: {

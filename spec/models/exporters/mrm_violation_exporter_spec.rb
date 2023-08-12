@@ -217,7 +217,7 @@ module Exporters
       it 'prints the id headers' do
         expect(workbook.sheet(0).row(2)[0]).to eq('ID#')
         expect(workbook.sheet(0).row(3)[0..3]).to eq(
-          ['Incident', 'Violation', 'Violation Type', 'Summary']
+          ['Prevention', 'Violation', 'Violation Type', 'Summary']
         )
       end
 
@@ -250,31 +250,31 @@ module Exporters
       it 'prints the headers for each association' do
         expect(workbook.sheet(1).row(2)).to eq(
           [
-            'Incident', 'Violation', 'Violation Type', 'Summary', 'Incident Code', 'Source ID',
+            'Prevention', 'Violation', 'Violation Type', 'Summary', 'Prevention Code', 'Source ID',
             'Sources - Field 1', 'Sources - Field 2'
           ]
         )
         expect(workbook.sheet(2).row(2)).to eq(
           [
-            'Incident', 'Violation', 'Violation Type', 'Summary', 'Incident Code', 'Perpetrator ID',
+            'Prevention', 'Violation', 'Violation Type', 'Summary', 'Prevention Code', 'Perpetrator ID',
             'Perpetrators - Field 1', 'Perpetrators - Field 2'
           ]
         )
         expect(workbook.sheet(3).row(2)).to eq(
           [
-            'Incident', 'Violation', 'Violation Type', 'Summary', 'Incident Code', 'Individual Victim ID',
+            'Prevention', 'Violation', 'Violation Type', 'Summary', 'Prevention Code', 'Individual Victim ID',
             'Individual_victims - Field 1', 'Individual_victims - Field 2'
           ]
         )
         expect(workbook.sheet(4).row(2)).to eq(
           [
-            'Incident', 'Violation', 'Violation Type', 'Summary', 'Incident Code', 'Group Victim ID',
+            'Prevention', 'Violation', 'Violation Type', 'Summary', 'Prevention Code', 'Group Victim ID',
             'Group_victims - Field 1', 'Group_victims - Field 2'
           ]
         )
         expect(workbook.sheet(5).row(2)).to eq(
           [
-            'Incident', 'Violation', 'Violation Type', 'Summary', 'Incident Code', 'Response ID',
+            'Prevention', 'Violation', 'Violation Type', 'Summary', 'Prevention Code', 'Response ID',
             'Responses - Field 1', 'Responses - Field 2'
           ]
         )

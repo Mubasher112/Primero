@@ -64,6 +64,15 @@ Rails.application.routes.draw do
         get :record_history, to: 'record_histories#index'
       end
 
+      resources :preventions do
+        resources :flags, only: %i[index create update]
+        resources :alerts, only: [:index]
+        resources :approvals, only: [:update]
+        resources :attachments, only: %i[create destroy]
+        post :flags, to: 'flags#create_bulk', on: :collection
+        get :record_history, to: 'record_histories#index'
+      end
+
       resources :tracing_requests do
         resources :flags, only: %i[index create update]
         resources :alerts, only: [:index]

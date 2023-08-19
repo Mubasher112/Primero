@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Grid } from "@material-ui/core";
 
-import PropTypes from "prop-types";
 import { useI18n } from "../../i18n";
 import PageContainer, { PageHeading, PageContent } from "../../page";
 import { getPermissions } from "../../user/selectors";
@@ -11,6 +10,7 @@ import { OfflineAlert } from "../../disable-offline";
 import { usePermissions, ACTIONS, RESOURCES } from "../../permissions";
 import { RECORD_PATH } from "../../../config";
 import { useMemoizedSelector } from "../../../libs";
+import PercentageTile from "../../percentage-tile";
 
 import {
   Approvals,
@@ -27,75 +27,25 @@ import {
   ViolationsCategoryRegion,
   ViolationsCategoryVerificationStatus,
   WorkflowIndividualCases,
-  WorkflowTeamCases
+  WorkflowTeamCases,
+  CasesAtGlance,
+  RegCasesByProtection,
+  SourceOfCases,
+  CasesRequiringAlt,
+  CasesReferrals,
+  PoliceCases,
+  CasesRequireSpecialConsideration,
+  ClosedCasesBySex,
+  ClosedCasesByAge,
+  HighRiskCases,
+  CustodyByCourtOrder,
+  CommunityBasedChild,
+  CommunityEngagementSession,
+  RegAndClosedByMonth
 } from "./components";
 import NAMESPACE from "./namespace";
 import { NAME } from "./constants";
 import { fetchDashboards, fetchFlags } from "./action-creators";
-
-// Custom PercentageTile component
-const PercentageTile = ({ label, percentage, count, color }) => {
-  return (
-    <div
-      style={{
-        border: "1px solid black",
-        padding: "10px",
-        textAlign: "center",
-        backgroundColor: color,
-        flex: "1",
-        margin: "0 5px"
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center"
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            marginBottom: "5px"
-          }}
-        >
-          <h2
-            style={{
-              marginRight: "5px",
-              fontSize: "30px",
-              fontWeight: "bold",
-              color: "white"
-            }}
-          >
-            {percentage}%
-          </h2>
-          <p
-            style={{
-              fontSize: "30px",
-              fontWeight: "bold",
-              color: "white",
-              margin: 0
-            }}
-          >
-            ({count})
-          </p>
-        </div>
-        <p style={{ margin: 0, color: "white", fontSize: "20px", fontWeight: "bold" }}>{label}</p>
-      </div>
-    </div>
-  );
-};
-
-PercentageTile.displayName = "PercentageTile";
-
-PercentageTile.propTypes = {
-  color: PropTypes.string.isRequired,
-  count: PropTypes.number.isRequired,
-  label: PropTypes.string.isRequired,
-  percentage: PropTypes.number.isRequired
-};
 
 const Dashboard = () => {
   const i18n = useI18n();
@@ -141,31 +91,66 @@ const Dashboard = () => {
             <h4>Registered Cases Vs Services Provided</h4>
           </Grid>
           <Grid item xl={12} md={12} xs={12} style={{ display: "flex", justifyContent: "space-between" }}>
-            <PercentageTile label="Physical Violance or Injury" percentage={75} count={3} color="LightCoral" />
-            <PercentageTile label="Mental Violance" percentage={50} count={2} color="CornflowerBlue" />
-            <PercentageTile label="Neglect and Negligent Treatment" percentage={40} count={4} color="Purple" />
-            <PercentageTile label="Exploitation" percentage={90} count={5} color="Orange" />
+            <PercentageTile label="Physical Violence or Injury" percentage={20} count={89} color="LightCoral" />
+            <PercentageTile label="Mental Violence" percentage={24} count={99} color="CornflowerBlue" />
+            <PercentageTile label="Neglect and Negligent Treatment" percentage={30} count={110} color="Purple" />
+            <PercentageTile label="Exploitation" percentage={20} count={89} color="Orange" />
             <PercentageTile
               label="Sexual Abuse and Sexual Exploitation"
-              percentage={60}
-              count={1}
+              percentage={15}
+              count={51}
               color="MediumSeaGreen"
             />
           </Grid>
         </Grid>
+        {/* First Row */}
+        <Grid container spacing={3}>
+          <CasesAtGlance />
+          <RegCasesByProtection />
+        </Grid>
+        {/* Second Row */}
+        <Grid container spacing={3}>
+          <HighRiskCases />
+          <RegAndClosedByMonth />
+        </Grid>
+        {/* Third Row */}
+        <SourceOfCases />
+        {/* Forth Row */}
+        <Grid container spacing={3}>
+          <CasesRequiringAlt />
+          <CasesReferrals />
+        </Grid>
+        {/* Fifth Row */}
+        <Grid container spacing={3}>
+          <CustodyByCourtOrder />
+          <PoliceCases />
+        </Grid>
+        {/* Sixth Row */}
+        <Grid container spacing={3}>
+          <CasesRequireSpecialConsideration />
+          <ClosedCasesBySex />
+        </Grid>
+        {/* Seventh Row */}
+        <Grid container spacing={3}>
+          <CommunityBasedChild />
+          <CommunityEngagementSession />
+        </Grid>
+        {/* Eight Row */}
+        <ClosedCasesByAge />
+
         <Grid container spacing={3}>
           <Grid item xl={12} md={12} xs={12}>
             <h4>Percentage of Children who received Child Protection Services</h4>
           </Grid>
           <Grid item xl={12} md={12} xs={12} style={{ display: "flex", justifyContent: "space-between" }}>
-            <PercentageTile label="Physical Violance or Injury" percentage={75} count={3} color="LightCoral" />
-            <PercentageTile label="Mental Violance" percentage={50} count={2} color="CornflowerBlue" />
-            <PercentageTile label="Neglect and Negligent Treatment" percentage={40} count={4} color="Purple" />
-            <PercentageTile label="Exploitation" percentage={90} count={5} color="Orange" />
+            <PercentageTile label="Physical Violence or Injury" percentage={9} count={13} color="LightCoral" />
+            <PercentageTile label="Mental Violence" percentage={8} count={12} color="CornflowerBlue" />
+            <PercentageTile label="Neglect and Negligent Treatment" percentage={11} count={16} color="Purple" />
+            <PercentageTile label="Exploitation" percentage={8} count={12} color="Orange" />
             <PercentageTile
               label="Sexual Abuse and Sexual Exploitation"
-              percentage={60}
-              count={1}
+              percentage={6}
+              count={9}
               color="MediumSeaGreen"
             />
           </Grid>

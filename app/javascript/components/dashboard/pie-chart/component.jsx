@@ -1,7 +1,7 @@
 import { createRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
-import Chart from "chart.js";
+import { Chart } from "chart.js";
 import { push } from "connected-react-router";
 
 import { ROUTES } from "../../../config";

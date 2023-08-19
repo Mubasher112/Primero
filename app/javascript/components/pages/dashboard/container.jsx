@@ -27,7 +27,21 @@ import {
   ViolationsCategoryRegion,
   ViolationsCategoryVerificationStatus,
   WorkflowIndividualCases,
-  WorkflowTeamCases
+  WorkflowTeamCases,
+  CasesAtGlance,
+  RegCasesByProtection,
+  SourceOfCases,
+  CasesRequiringAlt,
+  CasesReferrals,
+  PoliceCases,
+  CasesRequireSpecialConsideration,
+  ClosedCasesBySex,
+  ClosedCasesByAge,
+  HighRiskCases,
+  CustodyByCourtOrder,
+  CommunityBasedChild,
+  CommunityEngagementSession,
+  RegAndClosedByMonth
 } from "./components";
 import NAMESPACE from "./namespace";
 import { NAME } from "./constants";
@@ -77,8 +91,8 @@ const Dashboard = () => {
             <h4>Registered Cases Vs Services Provided</h4>
           </Grid>
           <Grid item xl={12} md={12} xs={12} style={{ display: "flex", justifyContent: "space-between" }}>
-            <PercentageTile label="Physical Violance or Injury" percentage={20} count={89} color="LightCoral" />
-            <PercentageTile label="Mental Violance" percentage={24} count={99} color="CornflowerBlue" />
+            <PercentageTile label="Physical Violence or Injury" percentage={20} count={89} color="LightCoral" />
+            <PercentageTile label="Mental Violence" percentage={24} count={99} color="CornflowerBlue" />
             <PercentageTile label="Neglect and Negligent Treatment" percentage={30} count={110} color="Purple" />
             <PercentageTile label="Exploitation" percentage={20} count={89} color="Orange" />
             <PercentageTile
@@ -91,144 +105,46 @@ const Dashboard = () => {
         </Grid>
         {/* First Row */}
         <Grid container spacing={3}>
-          <Grid item xl={6} md={6} xs={12}>
-            <Grid container spacing={3}>
-              <Grid item xl={12} md={12} xs={12}>
-                <h4>Cases at a Glance</h4>
-                <div style={{ border: "1px solid black" }}>
-                  {/* <Bar data={casesAtGlanceData} options={barChartOptions} /> */}
-                </div>
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid item xl={6} md={6} xs={12}>
-            <h4>Registered cases by Protection Concern</h4>
-            <div style={{ border: "1px solid black" }}>
-              {/* <Bar data={lineChartData} options={lineChartOptions} /> */}
-            </div>
-          </Grid>
+          <CasesAtGlance />
+          <RegCasesByProtection />
         </Grid>
         {/* Second Row */}
         <Grid container spacing={3}>
-          <Grid item xl={6} md={6} xs={12}>
-            <Grid container spacing={3}>
-              <Grid item xl={12} md={12} xs={12}>
-                <h4>High Risk Cases by Protection Concern</h4>
-                <div style={{ border: "1px solid black" }}>
-                  {/* <Doughnut data={casesAtGlanceData} options={barChartOptions} /> */}
-                </div>
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid item xl={6} md={6} xs={12}>
-            <h4>Registered and Closed Cases by Month</h4>
-            <div style={{ border: "1px solid black" }}>
-              {/* <Line data={lineChartData} options={lineChartOptions} /> */}
-            </div>
-          </Grid>
+          <HighRiskCases />
+          <RegAndClosedByMonth />
         </Grid>
         {/* Third Row */}
-        <Grid container spacing={3}>
-          <Grid item xl={12} md={12} xs={12}>
-            <h4>Source of Cases</h4>
-            <div style={{ border: "1px solid black" }}>
-              {/* <Bar data={closedCasesByAgeChartData} options={barChartOptions} /> */}
-            </div>
-          </Grid>
-        </Grid>
+        <SourceOfCases />
         {/* Forth Row */}
         <Grid container spacing={3}>
-          <Grid item xl={6} md={6} xs={12}>
-            <Grid container spacing={3}>
-              <Grid item xl={12} md={12} xs={12}>
-                <h4>Cases requiring Alternative Care Placement Services</h4>
-                <div style={{ border: "1px solid black" }}>
-                  {/* <Bar data={casesAtGlanceData} options={barChartOptions} /> */}
-                </div>
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid item xl={6} md={6} xs={12}>
-            <h4>Cases Referrals (to Agency)</h4>
-            <div style={{ border: "1px solid black" }}>
-              {/* <Bar data={lineChartData} options={lineChartOptions} /> */}
-            </div>
-          </Grid>
+          <CasesRequiringAlt />
+          <CasesReferrals />
         </Grid>
         {/* Fifth Row */}
         <Grid container spacing={3}>
-          <Grid item xl={6} md={6} xs={12}>
-            <Grid container spacing={3}>
-              <Grid item xl={12} md={12} xs={12}>
-                <h4>Custody by Court Order</h4>
-                <div style={{ border: "1px solid black" }}>
-                  {/* <Doughnut data={casesAtGlanceData} options={barChartOptions} /> */}
-                </div>
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid item xl={6} md={6} xs={12}>
-            <h4>Police Cases</h4>
-            <div style={{ border: "1px solid black" }}>
-              {/* <Bar data={lineChartData} options={lineChartOptions} /> */}
-            </div>
-          </Grid>
+          <CustodyByCourtOrder />
+          <PoliceCases />
         </Grid>
         {/* Sixth Row */}
         <Grid container spacing={3}>
-          <Grid item xl={6} md={6} xs={12}>
-            <Grid container spacing={3}>
-              <Grid item xl={12} md={12} xs={12}>
-                <h4>Cases Requiring Special Consideration</h4>
-                <div style={{ border: "1px solid black" }}>
-                  {/* <Bar data={casesAtGlanceData} options={barChartOptions} /> */}
-                </div>
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid item xl={6} md={6} xs={12}>
-            <h4>Closed Cases by Sex and Protection Concern</h4>
-            <div style={{ border: "1px solid black" }}>
-              {/* <Bar data={lineChartData} options={lineChartOptions} /> */}
-            </div>
-          </Grid>
+          <CasesRequireSpecialConsideration />
+          <ClosedCasesBySex />
         </Grid>
         {/* Seventh Row */}
         <Grid container spacing={3}>
-          <Grid item xl={6} md={6} xs={12}>
-            <Grid container spacing={3}>
-              <Grid item xl={12} md={12} xs={12}>
-                <h4>Cases Requiring Special Consideration</h4>
-                <div style={{ border: "1px solid black" }}>
-                  {/* <Doughnut data={casesAtGlanceData} options={barChartOptions} /> */}
-                </div>
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid item xl={6} md={6} xs={12}>
-            <h4>Closed Cases by Sex and Protection Concern</h4>
-            <div style={{ border: "1px solid black" }}>
-              {/* <Doughnut data={lineChartData} options={lineChartOptions} /> */}
-            </div>
-          </Grid>
+          <CommunityBasedChild />
+          <CommunityEngagementSession />
         </Grid>
         {/* Eight Row */}
-        <Grid container spacing={3}>
-          <Grid item xl={12} md={12} xs={12}>
-            <h4>Closed Cases by Age and Protection Concern</h4>
-            <div style={{ border: "1px solid black" }}>
-              {/* <Bar data={closedCasesByAgeChartData} options={barChartOptions} /> */}
-            </div>
-          </Grid>
-        </Grid>
+        <ClosedCasesByAge />
 
         <Grid container spacing={3}>
           <Grid item xl={12} md={12} xs={12}>
             <h4>Percentage of Children who received Child Protection Services</h4>
           </Grid>
           <Grid item xl={12} md={12} xs={12} style={{ display: "flex", justifyContent: "space-between" }}>
-            <PercentageTile label="Physical Violance or Injury" percentage={9} count={13} color="LightCoral" />
-            <PercentageTile label="Mental Violance" percentage={8} count={12} color="CornflowerBlue" />
+            <PercentageTile label="Physical Violence or Injury" percentage={9} count={13} color="LightCoral" />
+            <PercentageTile label="Mental Violence" percentage={8} count={12} color="CornflowerBlue" />
             <PercentageTile label="Neglect and Negligent Treatment" percentage={11} count={16} color="Purple" />
             <PercentageTile label="Exploitation" percentage={8} count={12} color="Orange" />
             <PercentageTile

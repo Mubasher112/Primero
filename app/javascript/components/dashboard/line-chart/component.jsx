@@ -1,6 +1,6 @@
-import Chart from "chart.js";
 import PropTypes from "prop-types";
 import { createRef, useEffect } from "react";
+import { Chart } from "chart.js";
 
 import css from "./styles.css";
 

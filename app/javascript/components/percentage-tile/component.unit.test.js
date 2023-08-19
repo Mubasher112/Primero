@@ -23,6 +23,7 @@ describe("<PercentageTile />", () => {
 
     // Check if background color is applied
     const divElement = container.firstChild;
+
     expect(divElement).toHaveStyle(`background-color: ${defaultProps.color}`);
   });
 

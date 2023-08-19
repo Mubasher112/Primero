@@ -1,10 +1,11 @@
 import { useRef, useEffect } from "react";
-import Chart from "chart.js";
+import { Chart } from "chart.js";
 import PropTypes from "prop-types";
 
 const StackedBarChart = ({ chartData, options = {} }) => {
   const chartRef = useRef(null);
 
+  // eslint-disable-next-line consistent-return
   useEffect(() => {
     if (chartRef && chartRef.current) {
       const chartInstance = new Chart(chartRef.current, {

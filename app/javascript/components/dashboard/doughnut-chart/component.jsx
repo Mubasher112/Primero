@@ -1,4 +1,4 @@
-import Chart from "chart.js";
+import { Chart } from "chart.js";
 import PropTypes from "prop-types";
 import { createRef, useEffect } from "react";
 

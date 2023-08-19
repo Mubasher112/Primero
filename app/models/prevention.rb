@@ -32,7 +32,7 @@ class Prevention < ApplicationRecord
 
   class << self
     def filterable_id_fields
-      %w[prevention_id prevntion_code monitor_number survivor_code preventionid_ir short_id]
+      %w[prevention_id prevention_code monitor_number survivor_code preventionid_ir short_id]
     end
 
     def quicksearch_fields

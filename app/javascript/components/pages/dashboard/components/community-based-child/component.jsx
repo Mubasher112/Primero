@@ -7,7 +7,7 @@ const Component = () => {
     labels: ["Female Committees", "Female Committees", "Total Committees"],
     datasets: [
       {
-        data: [36, 48, 84],
+        data: [0, 0, 0],
         backgroundColor: ["pink", "green", "blue"]
       }
     ]

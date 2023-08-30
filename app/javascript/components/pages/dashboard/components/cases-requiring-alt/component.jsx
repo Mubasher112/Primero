@@ -8,21 +8,21 @@ const Component = () => {
     datasets: [
       {
         label: "Male",
-        data: [14, 4, 2],
+        data: [342, 0, 0],
         backgroundColor: "rgba(0, 128, 0, 1)", // green
         borderColor: "rgba(0, 128, 0, 1)",
         borderWidth: 1
       },
       {
         label: "Female",
-        data: [10, 6, 3],
+        data: [345, 0, 0],
         backgroundColor: "rgba(255, 105, 180, 1)", // pink
         borderColor: "rgba(255, 105, 180, 1)",
         borderWidth: 1
       },
       {
         label: "Transgender",
-        data: [2, 1, 1],
+        data: [0, 0, 0],
         backgroundColor: "rgba(255, 255, 0, 1)", // yellow
         borderColor: "rgba(255, 255, 0, 1)",
         borderWidth: 1
@@ -44,10 +44,6 @@ const Component = () => {
       yAxes: [
         {
           stacked: true,
-          ticks: {
-            beginAtZero: true,
-            stepSize: 5
-          },
           scaleLabel: {
             display: false
           }

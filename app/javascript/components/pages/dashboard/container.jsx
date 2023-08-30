@@ -88,17 +88,19 @@ const Dashboard = () => {
         {/* Display PercentageTiles */}
         <Grid container spacing={3}>
           <Grid item xl={12} md={12} xs={12}>
-            <h4>Registered Cases Vs Services Provided</h4>
+            <CasesToAssign loadingIndicator={indicatorProps} />
+            <WorkflowIndividualCases loadingIndicator={indicatorProps} />
+            <h4>Registered Cases</h4>
           </Grid>
           <Grid item xl={12} md={12} xs={12} style={{ display: "flex", justifyContent: "space-between" }}>
-            <PercentageTile label="Physical Violence or Injury" percentage={20} count={89} color="LightCoral" />
-            <PercentageTile label="Mental Violence" percentage={24} count={99} color="CornflowerBlue" />
-            <PercentageTile label="Neglect and Negligent Treatment" percentage={30} count={110} color="Purple" />
-            <PercentageTile label="Exploitation" percentage={20} count={89} color="Orange" />
+            <PercentageTile label="Physical Violence or Injury" percentage={30} count={164} color="LightCoral" />
+            <PercentageTile label="Mental Violence" percentage={23} count={138} color="CornflowerBlue" />
+            <PercentageTile label="Neglect and Negligent Treatment" percentage={38} count={205} color="Purple" />
+            <PercentageTile label="Exploitation" percentage={3} count={15} color="Orange" />
             <PercentageTile
               label="Sexual Abuse and Sexual Exploitation"
-              percentage={15}
-              count={51}
+              percentage={6}
+              count={31}
               color="MediumSeaGreen"
             />
           </Grid>
@@ -114,7 +116,7 @@ const Dashboard = () => {
           <RegAndClosedByMonth />
         </Grid>
         {/* Third Row */}
-        <SourceOfCases />
+        {/* <SourceOfCases /> */}
         {/* Forth Row */}
         <Grid container spacing={3}>
           <CasesRequiringAlt />
@@ -143,24 +145,22 @@ const Dashboard = () => {
             <h4>Percentage of Children who received Child Protection Services</h4>
           </Grid>
           <Grid item xl={12} md={12} xs={12} style={{ display: "flex", justifyContent: "space-between" }}>
-            <PercentageTile label="Physical Violence or Injury" percentage={9} count={13} color="LightCoral" />
-            <PercentageTile label="Mental Violence" percentage={8} count={12} color="CornflowerBlue" />
-            <PercentageTile label="Neglect and Negligent Treatment" percentage={11} count={16} color="Purple" />
-            <PercentageTile label="Exploitation" percentage={8} count={12} color="Orange" />
+            <PercentageTile label="Physical Violence or Injury" percentage={31} count={63} color="LightCoral" />
+            <PercentageTile label="Mental Violence" percentage={26} count={52} color="CornflowerBlue" />
+            <PercentageTile label="Neglect and Negligent Treatment" percentage={37} count={75} color="Purple" />
+            <PercentageTile label="Exploitation" percentage={6} count={12} color="Orange" />
             <PercentageTile
               label="Sexual Abuse and Sexual Exploitation"
-              percentage={6}
-              count={9}
+              percentage={0}
+              count={1}
               color="MediumSeaGreen"
             />
           </Grid>
         </Grid>
         <Grid container spacing={3}>
           <Grid item xl={9} md={8} xs={12}>
-            <Overview loadingIndicator={indicatorProps} userPermissions={userPermissions} />
-            <WorkflowIndividualCases loadingIndicator={indicatorProps} />
-            <CasesToAssign loadingIndicator={indicatorProps} />
-            <Approvals loadingIndicator={indicatorProps} />
+            {/* <Overview loadingIndicator={indicatorProps} userPermissions={userPermissions} /> */}
+            {/* <Approvals loadingIndicator={indicatorProps} /> */}
             <SharedFromMyTeam loadingIndicator={indicatorProps} />
             <SharedWithMyTeam loadingIndicator={indicatorProps} />
             <OverdueTasks loadingIndicator={indicatorProps} />

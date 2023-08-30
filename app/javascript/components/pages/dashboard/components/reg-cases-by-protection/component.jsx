@@ -4,25 +4,25 @@ import { StackedBarChart } from "../../../../charts";
 
 const Component = () => {
   const chartData = {
-    labels: ["Violence", "Exploitation", "Neglect", "Abuse", "Harmful Practices", "Other"],
+    labels: ["Physical", "Exploitation", "Neglect", "Abuse", "Mental", "Other"],
     datasets: [
       {
         label: "Male",
-        data: [10, 10, 9, 7, 9, 13], // Add your actual data here
+        data: [115, 15, 131, 13, 68, 0], // Add your actual data here
         backgroundColor: "green",
         borderColor: "green",
         borderWidth: 1
       },
       {
         label: "Female",
-        data: [12, 8, 2, 6, 3, 3], // Add your actual data here
+        data: [103, 6, 81, 23, 125, 0], // Add your actual data here
         backgroundColor: "pink",
         borderColor: "pink",
         borderWidth: 1
       },
       {
         label: "Transgender",
-        data: [1, 2, 3, 2, 4, 5], // Add your actual data here
+        data: [0, 0, 0, 0, 0, 0], // Add your actual data here
         backgroundColor: "yellow",
         borderColor: "yellow",
         borderWidth: 1

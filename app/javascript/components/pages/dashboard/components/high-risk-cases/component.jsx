@@ -4,10 +4,10 @@ import { DoughnutChart } from "../../../../charts";
 
 const Component = () => {
   const doughnutData = {
-    labels: ["Violence", "Exploitation", "Other", "Abuse", "Harmful Practices", "Neglect"],
+    labels: ["Physical", "Exploitation", "Other", "Abuse", "Mental", "Neglect"],
     datasets: [
       {
-        data: [10, 10, 13, 7, 9, 9],
+        data: [20, 0, 0, 0, 35, 45],
         backgroundColor: ["blue", "orange", "gray", "yellow", "lightblue", "green"]
       }
     ]
@@ -25,7 +25,7 @@ const Component = () => {
       <Grid item xl={6} md={6} xs={12}>
         <Grid container spacing={3}>
           <Grid item xl={12} md={12} xs={12}>
-            <h4>High Risk Cases by Protection Concern</h4>
+            <h4>Significant Harm Cases by Protection Concern</h4>
             <div style={{ border: "1px solid black" }}>
               <DoughnutChart chartData={doughnutData} options={doughnutOptions} />
             </div>

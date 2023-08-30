@@ -5,33 +5,33 @@ import { StackedBarChart } from "../../../../charts";
 const Component = () => {
   const chartData = {
     labels: [
-      "Monitory cases",
-      "CwD cases",
-      "Cases with BISP Benif.",
-      "Orphan cases",
-      "Afghan refugees",
-      "Legal Aid(Child & juvenile)",
-      "Guardianship Awarded",
-      "Other Province cases"
+      "Monitory",
+      "CwD",
+      "BISP",
+      "Orphan",
+      "Afghan",
+      "Legal Aid",
+      "Guardianship",
+      "Other Provinces"
     ],
     datasets: [
       {
         label: "Male",
-        data: [59, 14, 25, 15, 10, 10, 9, 45],
+        data: [343, 32, 0, 0, 0, 0, 0, 0],
         backgroundColor: "rgba(0, 128, 0, 1)", // Green
         borderColor: "rgba(0, 128, 0, 1)",
         borderWidth: 1
       },
       {
         label: "Female",
-        data: [40, 10, 20, 12, 8, 9, 8, 40],
+        data: [346, 14, 0, 0, 0, 0, 0, 0],
         backgroundColor: "rgba(255, 182, 193, 1)", // Pink
         borderColor: "rgba(255, 182, 193, 1)",
         borderWidth: 1
       },
       {
         label: "Transgender",
-        data: [10, 8, 9, 8, 1, 1, 1, 12],
+        data: [0, 0, 0, 0, 0, 0, 0, 0],
         backgroundColor: "rgba(255, 255, 0, 1)", // Yellow
         borderColor: "rgba(255, 255, 0, 1)",
         borderWidth: 1

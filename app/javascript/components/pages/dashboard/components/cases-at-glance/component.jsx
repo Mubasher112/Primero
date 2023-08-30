@@ -4,11 +4,19 @@ import { StackedBarChart } from "../../../../charts";
 
 const Component = () => {
   const chartData = {
-    labels: ["Registered", "Pakistani", "Other Nationality", "High", "Medium", "Low", "Closed cases", "Assigned to me"],
+    labels: [
+      "Registered",
+      "Pakistani",
+      "Other Nationality",
+      "Significant Harm",
+      "Regular",
+      "Closed cases",
+      "Assigned to me"
+    ],
     datasets: [
       {
         label: "Cases",
-        data: [93, 75, 18, 32, 28, 33, 85, 146],
+        data: [1290, 1290, 0, 36, 1254, 387, 1555],
         backgroundColor: [
           "Blue", // Registered
           "Green", // Pakistani
@@ -48,10 +56,6 @@ const Component = () => {
       yAxes: [
         {
           stacked: true,
-          ticks: {
-            beginAtZero: true,
-            stepSize: 20 // setting gap of 20
-          },
           scaleLabel: {
             display: true,
             labelString: "No of cases"

@@ -4,23 +4,36 @@ import { LineChart } from "../../../../charts";
 
 const Component = () => {
   const chartData = {
-    labels: ["January", "February", "March", "April", "May"],
+    labels: [
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug"
+    ],
     datasets: [
       {
         label: "Registered",
-        data: [30, 40, 35, 45, 50], // This will be the total of male, female, and transgender
-        maleData: [10, 15, 10, 20, 15],
-        femaleData: [10, 15, 15, 10, 20],
-        transgenderData: [10, 10, 10, 15, 15],
+        data: [0, 0, 0, 0, 165, 26, 0, 0, 193, 74, 0, 7], // This will be the total of male, female, and transgender
+        maleData: [0, 0, 0, 0, 84, 15, 0, 0, 101, 37, 0, 5],
+        femaleData: [0, 0, 0, 0, 81, 11, 0, 0, 92, 37, 0, 2],
+        transgenderData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         borderColor: "rgb(255, 159, 64)", // Orange
         fill: false
       },
       {
         label: "Closed",
-        data: [20, 30, 25, 30, 40], // This will be the total of male, female, and transgender
-        maleData: [5, 10, 10, 10, 15],
-        femaleData: [10, 15, 10, 10, 15],
-        transgenderData: [5, 5, 5, 10, 10],
+        data: [0, 0, 0, 0, 0, 0, 0, 204, 0, 0, 0, 0], // This will be the total of male, female, and transgender
+        maleData: [0, 0, 0, 0, 0, 0, 0, 146, 0, 0, 0, 0],
+        femaleData: [0, 0, 0, 0, 0, 0, 0, 58, 0, 0, 0, 0],
+        transgenderData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         borderColor: "rgb(54, 162, 235)", // Blue
         fill: false
       }

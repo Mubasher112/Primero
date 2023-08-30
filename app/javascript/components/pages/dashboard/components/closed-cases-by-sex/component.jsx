@@ -16,21 +16,21 @@ const Component = () => {
     datasets: [
       {
         label: "Male",
-        data: [10, 10, 9, 7, 9, 13, 7],
+        data: [146, 0, 0, 0, 0, 0, 0],
         backgroundColor: "rgba(0, 128, 0, 1)", // Green
         borderColor: "rgba(0, 128, 0, 1)",
         borderWidth: 1
       },
       {
         label: "Female",
-        data: [12, 8, 2, 6, 3, 3, 6],
+        data: [58, 0, 0, 0, 0, 0, 0],
         backgroundColor: "rgba(255, 182, 193, 1)", // Pink
         borderColor: "rgba(255, 182, 193, 1)",
         borderWidth: 1
       },
       {
         label: "Transgender",
-        data: [1, 2, 3, 2, 4, 2, 2],
+        data: [0, 0, 0, 0, 0, 0, 0],
         backgroundColor: "rgba(255, 255, 0, 1)", // Yellow
         borderColor: "rgba(255, 255, 0, 1)",
         borderWidth: 1

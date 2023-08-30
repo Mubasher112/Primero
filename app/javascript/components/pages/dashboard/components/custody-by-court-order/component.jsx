@@ -4,11 +4,11 @@ import { DoughnutChart } from "../../../../charts";
 
 const Component = () => {
   const doughnutData = {
-    labels: ["Emergency Protection Order", "Other Court Orders"],
+    labels: ["Supervision", "Custody and Placement", "Interim", "Seek and Find"],
     datasets: [
       {
-        data: [45, 4],
-        backgroundColor: ["blue", "red"]
+        data: [0, 0, 100, 0],
+        backgroundColor: ["pink", "blue", "yellow", "purple"]
       }
     ]
   };
